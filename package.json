@@ -1,18 +1,27 @@
 {
-  "name": "Harta Serviciilor Sociale",
+  "name": "servicii",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "babel-plugin-transform-flow-strip-types": "^6.18.0",
+    "eslint": "^3.8.1",
+    "eslint-plugin-react": "^6.4.1",
+    "flow-bin": "^0.35.0",
+    "flow-typed": "^2.0.0",
     "react-scripts": "0.7.0"
   },
   "dependencies": {
     "react": "^15.4.0",
-    "react-dom": "^15.4.0"
+    "react-dom": "^15.4.0",
+    "react-router": "next",
+    "material-ui": "^0.16.4",
+    "react-tap-event-plugin": "^2.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "flow": "./node_modules/flow-bin/vendor/flow",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
