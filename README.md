@@ -1,4 +1,4 @@
-# Harta Serviciilor Sociale Autorizate [![Slack Status](https://govitslack.herokuapp.com/badge.svg)](https://govitslack.herokuapp.com)
+# Harta Serviciilor Sociale Autorizate [![Travis build](https://travis-ci.org/gov-ithub/servicii-sociale.svg?branch=master)](https://travis-ci.org/gov-ithub/servicii-sociale)[![Slack Status](https://govitslack.herokuapp.com/badge.svg)](https://govitslack.herokuapp.com)
 
 Vizualizarea si Filtrarea Serviciilor Sociale Autorizate din Romania de catre cetateni.
 
