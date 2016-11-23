@@ -5,6 +5,7 @@ node_modules
 
 # testing
 coverage
+jest
 
 # production
 build
@@ -13,3 +14,6 @@ build
 .DS_Store
 .env
 npm-debug.log
+
+# flow
+flow-typed
