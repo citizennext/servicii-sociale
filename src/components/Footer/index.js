@@ -3,8 +3,13 @@ import Img from '../../components/Img'
 import logo from '../../../public/min-logo.png'
 import './footer.css';
 
-const Footer= () => (
-  <div id='footer' className='section grey'>
+const Footer= (props) => (
+  <div id='footer'
+    className=''
+    style={props.open
+      ? {left: 256}
+      : {left: 0} }
+  >
     <div className="logo_minister"><Img src={logo} alt='Ministerul Muncii' /></div>
     <p className="social-media">
       <a href="https://twitter.com" target="_blank" title="twitter"><i className="fa fa-twitter"></i></a>

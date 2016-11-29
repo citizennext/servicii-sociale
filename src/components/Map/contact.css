@@ -1,0 +1,35 @@
+#contactCss.section .container{
+  padding-bottom: 0;
+  position: relative;
+}
+.popout{
+  width: 20em;
+  height: 10em;
+}
+.overlay{
+  position: absolute;
+  width: calc(100vw - 350px);
+  height: 54px;
+  top: 0px;
+  right: 0px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 0 20px;
+}
+.overlay input{
+  height: 40px!important;
+  padding-bottom: 10px!important;
+}
+.spacer{
+  padding: 20px 0;
+}
+@media (max-width: 767px) {
+  .overlay{
+    /*position: relative;
+    width: 100%;
+    height: auto;
+    top: 0px;
+    left: 0px;
+    background-color: #ffffff;
+    padding: 20px;*/
+  }
+}
