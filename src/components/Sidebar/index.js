@@ -3,6 +3,7 @@ import {Link} from "react-router"
 import {Drawer, Divider, List, ListItem, makeSelectable, IconButton, AutoComplete} from "material-ui"
 import ActionHelp from "material-ui/svg-icons/action/help"
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
+import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
 import './sidebar.css'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
@@ -49,31 +50,7 @@ function wrapState(ComposedComponent) {
   }
 
 SelectableList = wrapState(SelectableList)
-// const organisingType = [
-//   {name:"Centru rezidenţial cu cazare pe perioadă nedeterminată", code:"1" },
-//   {name:"Centru rezidenţial cu cazare pe perioadă determinată", code:"2" },
-//   {name:"Locuinţă protejată", code:"3" },
-//   {name:"Centru de zi", code:"4" },
-//   {name:"Unitate de îngrijiri la domiciliu", code:"5" },
-//   {name:"Serviciu acordat în comunitate", code:"6" },
-//   {name:"Cantină socială", code:"7" },
-//   {name:"Masă pe roţi", code:"8" },
-//   {name:"Unitate medico-social", code:"9" }
-// ]
-// const beneficiaries = [
-//   {code:"B1",	name: "Copii" },
-//   {code:"B1.1",	name: "Copii 3 - 6 ani" },
-//   {code:"B1.3",	name: "Copii 6 - 16 ani" },
-//   {code:"B1.4",	name: "Copii 16 - 18 ani" },
-//   {code:"B2",	name: "Tineri" },
-//   {code:"B2.1",	name: "Tineri 18 - 26" },
-//   {code:"B2.2",	name: "Tineri 26 - 35 ani" },
-//   {code:"B3",	name: "Adulti 35 - 65" },
-//   {code:"B4",	name: "Varstnici peste 65 ani" },
-//   {code:"B5",	name: "Familie" },
-//   {code:"B6",	name: "Grup" },
-//   {code:"B7",	name: "Comunitate" }
-// ]
+
 const beneficiariesConfigs = {
   text: 'name',
   value: 'code'
@@ -95,18 +72,26 @@ const styles = {
   navi: {display: 'flex', flexDirection: 'column', paddingTop: 0, paddingBottom: 0, backgroundColor: '#26b2d0',  overflow:'hidden', height:'100%'},
   close: {
     position: 'absolute',
-    right: '-54px',
     zIndex: 1111,
+    right: '-54px',
     top: 0,
     width:54,
     height:54,
-    color: 'red',
+    backgroundColor: '#26b2d0'
+  },
+  open: {
+    position: 'absolute',
+    zIndex: 1111,
+    right: '-64px',
+    top: 0,
+    width:54,
+    height:54,
     backgroundColor: '#26b2d0'
   }
 }
 
 const Sidebar = (props) => {
-  //const districtsnu = props.markers.reduce((a,b) => { a[b.jud] = (a[b.jud] || 0) + 1; return a }, {})
+  //const markersPerDistricts = props.markers.reduce((a,b) => { a[b.jud] = (a[b.jud] || 0) + 1; return a }, {})
 
   return (
   <MuiThemeProvider>
@@ -127,8 +112,11 @@ const Sidebar = (props) => {
 
         <IconButton
           onTouchTap={props.handleClose}
-          style={styles.close}>
-          <NavigationClose color='#ffffff' />
+          style={props.open ? styles.close : styles.open}>
+          {props.open
+            ? <NavigationClose color='#ffffff' />
+            : <NavigationMenu color='#ffffff' />
+          }
         </IconButton>
         <div className="filter">
           <div className="filter-child">

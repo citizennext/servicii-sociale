@@ -1,7 +1,12 @@
 import React from 'react'
 
-const Details = () => (
-  <div>Despre ServiciuDespre ServiciuDespre ServiciuDespre ServiciuDespre ServiciuDespre ServiciuDespre Serviciu</div>
-)
+const Details = (props) => {
+  console.log(props);
+  return (
+    <div>
+
+    </div>
+  )
+}
 
 export default Details
