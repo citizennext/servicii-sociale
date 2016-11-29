@@ -1,0 +1,40 @@
+.nume a {text-decoration: none!important;}
+.nume {
+  padding: 3em 1em;
+}
+.harta {
+  font-size: 3em;
+  font-weight: 100;
+  width: 100%;
+  clear: both;
+  display: block;
+  color: white;
+  margin: -10px auto;
+}
+.servicii {
+  font-size: 1.8em;
+  font-weight: 100;
+  width: 100%;
+  clear: both;
+  display: block;
+  color: white;
+  margin: -10px auto;
+}
+.autorizate {
+  font-size: 3em;
+  font-weight: 700;
+  width: 100%;
+  clear: both;
+  display: block;
+  color: white;
+  margin: -10px auto;
+}
+.filter label{
+  color: #ffffff!important;
+}
+.filter button span{
+  font-size: 13px!important
+}
+.filter hr{
+  border:solid 1px #5dd3ec!important;
+}

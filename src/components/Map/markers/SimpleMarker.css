@@ -1,0 +1,12 @@
+.marker {
+  background-image: url('./mapIcon.svg');
+  position: absolute;
+  cursor: pointer;
+  width: 49px;
+  height: 64px;
+  top: -64px;
+  left: -24px;
+  transform-origin: 24px 64px;
+  margin: 0;
+  padding: 0;
+}
