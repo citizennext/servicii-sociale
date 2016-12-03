@@ -1,5 +1,4 @@
 import React from 'react';
-import { browserHistory } from 'react-router';
 import SingleMap from '../Map/SingleMap';
 import Paper from 'material-ui/Paper';
 import FlatButton from 'material-ui/FlatButton';
@@ -44,6 +43,12 @@ const Map = styled.div`
   width: 100vw;
   z-index: 100
 `;
+const List = styled.ul`
+  padding: 0 0 10px 16px;
+  & > li {
+    padding-bottom: 5px;
+  }
+`;
 const Half = styled.div`
   width: 48%;
   margin-right: ${props => props.last ? '0' : '4%'};
@@ -77,7 +82,7 @@ const Details = (props) => {
         <FlatButton
           label="Inapoi"
           primary={true}
-          onTouchTap={browserHistory.goBack}
+          onTouchTap={props.handleBack}
           style={props.open ? {marginLeft:322,marginTop:8,color:'#333333'} : {marginLeft:64,marginTop:8, color:'#333333'}}
           icon={<NavigationArrowBack color='#333333' />}
         />
@@ -87,9 +92,9 @@ const Details = (props) => {
       </Map>
       <DetailsCard>
         <Over zDepth={2}>
+          <h2>{marker.name}</h2>
           <Half>
-            <h2>{marker.name}</h2>
-            <strong>{marker.furnizor}</strong>
+            <h3>{marker.furnizor}</h3>
             <p><i style={styles.icon} className="fa fa-map-marker"></i> {marker.adresa}, {marker.oras}, {marker.jud}</p>
             <p><i style={styles.icon} className="fa fa-phone"></i> {marker.phone}</p>
             <p><i style={styles.icon} className="fa fa-envelope"></i> <a href={`mailto:${marker.email}`}>{marker.email}</a></p>
@@ -97,7 +102,7 @@ const Details = (props) => {
           </Half>
           <Half last>
             <h3>Servicii</h3>
-            <ul>
+            <List>
               {services !== null
                 ? services.servicii.map((service, i) => {
                   return (
@@ -106,7 +111,7 @@ const Details = (props) => {
                 })
                 : <li>Acest centru nu are inca listate serviciile oferite</li>
               }
-            </ul>
+            </List>
           </Half>
         </Over>
       </DetailsCard>

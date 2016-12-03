@@ -2,7 +2,7 @@ import React from 'react';
 import withGoogleMap from "react-google-maps/lib/withGoogleMap";
 import GoogleMap from "react-google-maps/lib/GoogleMap";
 import Marker from "react-google-maps/lib/Marker";
-// import MarkerClusterer from 'react-google-maps/lib/addons/MarkerClusterer';
+import MarkerClusterer from 'react-google-maps/lib/addons/MarkerClusterer';
 import R from 'ramda';
 import Overlay from './overlay';
 
@@ -25,20 +25,30 @@ const MarkerClustererGoogleMap = withGoogleMap(props => {
       defaultZoom={props.zoom}
       defaultCenter={{ lat: 46.2, lng: 24 }}
       onMarkerClick={props.onMarkerClick}>
-      {/* <MarkerClusterer
-        averageCenter
-        enableRetinaIcons
-      gridSize={60}> */}
-      {filterData(props.markers, props.selectedFilters).map(
-        (marker) => (
-          <Marker
-            position={{ lat: parseFloat(marker.lat), lng: parseFloat(marker.lng) }}
-            key={marker.id}
-            onClick={() => props.onMarkerClick(marker, marker.id)}
-          />
-        ))
+      { R.isEmpty(props.selectedFilters)
+        ? <MarkerClusterer
+          averageCenter
+          enableRetinaIcons
+          gridSize={60}>
+          {filterData(props.markers, props.selectedFilters).map(
+            (marker) => (
+              <Marker
+                position={{ lat: parseFloat(marker.lat), lng: parseFloat(marker.lng) }}
+                key={marker.id}
+                onClick={() => props.onMarkerClick(marker, marker.id)}
+              />
+            ))
+          }
+        </MarkerClusterer>
+        : filterData(props.markers, props.selectedFilters).map(
+          (marker) => (
+            <Marker
+              position={{ lat: parseFloat(marker.lat), lng: parseFloat(marker.lng) }}
+              key={marker.id}
+              onClick={() => props.onMarkerClick(marker, marker.id)}
+            />
+          ))
       }
-      {/* </MarkerClusterer> */}
     </GoogleMap>
   )}
 )

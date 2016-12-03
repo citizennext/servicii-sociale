@@ -89,20 +89,25 @@ class App extends Component {
   onMarkerClick = (marker) => {
     this.props.route.history.push(`/serviciu/${marker.id}`);
     this.setState({ open: false })
-  }  
+  }
+
 
   handleClose = () => this.setState({open: !this.state.open});
+  handleBack = () => {
+    this.setState({open: !this.state.open})
+    this.props.route.history.push("/")
+  };
   render() {
     let children = null;
       children = React.cloneElement(this.props.children, {
         ...this.state,
-        onMarkerClick: this.onMarkerClick.bind(this)
+        onMarkerClick: this.onMarkerClick.bind(this), handleBack: this.handleBack
       })
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
-      <div>
-        {this.state.isLoading === true
-          ? <div style={{width:'100vw', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+        <div>
+          {this.state.isLoading === true
+            ? <div style={{width:'100vw', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
               <div style={{maxWidth: '50%', position: 'relative'}}>
                 <RefreshIndicator
                   size={150}
@@ -114,7 +119,7 @@ class App extends Component {
                 />
               </div>
             </div>
-          : <div>
+            : <div style={{width:'100vw', minHeight: '100vh', position:'relative', overflow: 'hidden'}}>
               <Sidebar
                 open={this.state.open}
                 handleClose={this.handleClose}

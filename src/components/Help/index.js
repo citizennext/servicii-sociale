@@ -8,7 +8,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 75px);
-  width: 100vw;
+  width: calc(100vw - 312px);
   padding-left: 312px;
 `;
 const OverlayBar = styled.div`
@@ -17,7 +17,7 @@ const OverlayBar = styled.div`
   left: 0;
   z-index: 1201;
   height: 54px;
-  width:100vw;
+  max-width:100vw;
   background-color: rgba(255, 255, 255, 0.6);
 `;
 const Help = (props) => {
@@ -32,7 +32,7 @@ const Help = (props) => {
           icon={<NavigationArrowBack color='#333333' />}
         />
       </OverlayBar>
-      <div style={{minHeight: '100%', marginTop: '54px', width: '100vw'}}>
+      <div style={{minHeight: '100%', marginTop: '54px', maxWidth: '100vw'}}>
         <h2>Ajutor</h2>
         Cautati folosind filtrele... <br />
         Incepeti sa tastati si optiunile se vor actualiza.

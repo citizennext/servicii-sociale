@@ -88,16 +88,16 @@ const Sidebar = (props) => {
     <Drawer
       containerStyle={{height: '100vh', top: 0, overflow:'none', backgroundColor: '#26b2d0'}}
       open={props.open}
-      >
-      <SelectableList {...props} defaultValue="dashboard" style={styles.navi}>
+    >
+      <SelectableList {...props} defaultValue="" style={styles.navi}>
 
-          <div className="nume">
-            <Link to="/">
+        <div className="nume">
+          <Link to="/">
             <span className="harta">Harta</span>
             <span className="servicii">Serviciilor Sociale</span>
             <span className="autorizate">Autorizate</span>
-            </Link>
-          </div>
+          </Link>
+        </div>
 
         <IconButton
           onTouchTap={props.handleClose}
@@ -114,7 +114,7 @@ const Sidebar = (props) => {
               listStyle={{width: '220px', color: '#37b8d4', fontSize: 13}}
               textFieldStyle={{width: '100%', color:'#ffffff', fontSize: 13}}
               floatingLabelText='Judet'
-              hintText='Introduceti Judetul'
+              hintText='Introduceti un judet'
               filter={AutoComplete.caseInsensitiveFilter}
               maxSearchResults={5}
               dataSource={props.districts}
@@ -128,6 +128,7 @@ const Sidebar = (props) => {
               menuStyle={{fontSize: '13px!important',width:'100%'}}
               textFieldStyle={{width: '100%', color:'#ffffff', fontSize: 13}}
               floatingLabelText='Tip serviciu'
+              hintText='Introduceti un serviciu'
               filter={AutoComplete.caseInsensitiveFilter}
               maxSearchResults={5}
               dataSource={props.servicii}
@@ -140,6 +141,7 @@ const Sidebar = (props) => {
               listStyle={{width: 'auto', color: '#37b8d4'}}
               textFieldStyle={{width: '100%', color:'#ffffff',fontSize: 13}}
               floatingLabelText='Tip organizare serviciu'
+              hintText='Introduceti un tip de organizare'
               filter={AutoComplete.caseInsensitiveFilter}
               maxSearchResults={5}
               dataSource={props.type}
@@ -149,16 +151,17 @@ const Sidebar = (props) => {
             />
             <AutoComplete
               style={{borderColor: '#37b8d4!important', marginLeft: 20, width:'83%'}}
-                listStyle={{width: 'auto', color: '#37b8d4', fontSize: 13}}
-                textFieldStyle={{width: '100%', color:'#ffffff', fontSize: 13}}
-                floatingLabelText='Beneficiari'
-                filter={AutoComplete.caseInsensitiveFilter}
-                maxSearchResults={12}
-                dataSource={props.beneficiaries}
-                dataSourceConfig={beneficiariesConfigs}
-                openOnFocus={true}
-                onNewRequest={(value) => props.changeBeneficiary(value.code)}
-              />
+              listStyle={{width: 'auto', color: '#37b8d4', fontSize: 13}}
+              textFieldStyle={{width: '100%', color:'#ffffff', fontSize: 13}}
+              floatingLabelText='Beneficiari'
+              hintText='Introduceti un beneficiar'
+              filter={AutoComplete.caseInsensitiveFilter}
+              maxSearchResults={12}
+              dataSource={props.beneficiaries}
+              dataSourceConfig={beneficiariesConfigs}
+              openOnFocus={true}
+              onNewRequest={(value) => props.changeBeneficiary(value.code)}
+            />
           </div>
         </div>
         <Divider style={{flexGrow:'1', backgroundColor:'#26b2d0'}}/>
