@@ -5,14 +5,6 @@ import ActionHelp from "material-ui/svg-icons/action/help"
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
 import './sidebar.css'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import getMuiTheme from 'material-ui/styles/getMuiTheme'
-import { lightBlue900 } from 'material-ui/styles/colors'
-const muiTheme = getMuiTheme({
-  palette: {
-    accent1Color: lightBlue900,
-  },
-})
 
 let SelectableList = makeSelectable(List);
 
@@ -67,7 +59,6 @@ const typeConfigs = {
   text: 'name',
   value: 'code'
 }
-
 const styles = {
   navi: {display: 'flex', flexDirection: 'column', paddingTop: 0, paddingBottom: 0, backgroundColor: '#26b2d0',  overflow:'hidden', height:'100%'},
   close: {
@@ -94,9 +85,7 @@ const Sidebar = (props) => {
   //const markersPerDistricts = props.markers.reduce((a,b) => { a[b.jud] = (a[b.jud] || 0) + 1; return a }, {})
 
   return (
-  <MuiThemeProvider>
     <Drawer
-      muiTheme={muiTheme}
       containerStyle={{height: '100vh', top: 0, overflow:'none', backgroundColor: '#26b2d0'}}
       open={props.open}
       >
@@ -181,7 +170,6 @@ const Sidebar = (props) => {
           containerElement={<Link to="/ajutor" />} />
       </SelectableList>
     </Drawer>
-  </MuiThemeProvider>
   )
 }
 export default Sidebar

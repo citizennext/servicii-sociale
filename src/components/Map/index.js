@@ -1,10 +1,10 @@
 import React from 'react';
-import { withGoogleMap, GoogleMap, Marker,  } from "react-google-maps";
-// import MarkerClusterer from 'react-google-maps/lib/addons/MarkerClusterer'
-import R from 'ramda'
-import './contact.css'
+import withGoogleMap from "react-google-maps/lib/withGoogleMap";
+import GoogleMap from "react-google-maps/lib/GoogleMap";
+import Marker from "react-google-maps/lib/Marker";
+// import MarkerClusterer from 'react-google-maps/lib/addons/MarkerClusterer';
+import R from 'ramda';
 import Overlay from './overlay';
-
 
 const MarkerClustererGoogleMap = withGoogleMap(props => {
   const filterData = (markers, selectedFilters) => {
@@ -19,59 +19,49 @@ const MarkerClustererGoogleMap = withGoogleMap(props => {
         )
       ))(markers)
     }
-  //  filterData(data, selectedFilters) {
-  //    const renderData = d => (<div key={d.category}>{d.category}</div>)
-  //    const activeFilterKeys = R.keys(R.filter(R.identity, R.dissoc('type', selectedFilters)))
-  //    const pickVals = R.pick(activeFilterKeys)
-  //
-  //    const filterType = d => !selectedFilters.type || d.type.indexOf(selectedFilters.type) >= 0
-  //    const filterInType = R.filter(filterType)
-  //    const filterFoo = R.filter(d => R.equals(pickVals(d), pickVals(selectedFilters)))
-  //    const filterAll = R.compose(filterInType, filterFoo)
-   //
-  //    return R.map(renderData, filterAll(data));
-  //
-  //  }
+
   return (
-
-  <GoogleMap
-    defaultZoom={props.zoom}
-    defaultCenter={{ lat: 46.2, lng: 24 }}
-    onMarkerClick={props.onMarkerClick}>
-    {/* <MarkerClusterer
-      averageCenter
-      enableRetinaIcons
+    <GoogleMap
+      defaultZoom={props.zoom}
+      defaultCenter={{ lat: 46.2, lng: 24 }}
+      onMarkerClick={props.onMarkerClick}>
+      {/* <MarkerClusterer
+        averageCenter
+        enableRetinaIcons
       gridSize={60}> */}
-        {filterData(props.markers, props.selectedFilters).map(
-          (marker, id) => (
-            <Marker
-              position={{ lat: parseFloat(marker.lat), lng: parseFloat(marker.lng) }}
-              key={id}
-              onClick={() => props.onMarkerClick(marker, id)}
-            />
-          ))
+      {filterData(props.markers, props.selectedFilters).map(
+        (marker) => (
+          <Marker
+            position={{ lat: parseFloat(marker.lat), lng: parseFloat(marker.lng) }}
+            key={marker.id}
+            onClick={() => props.onMarkerClick(marker, marker.id)}
+          />
+        ))
+      }
+      {/* </MarkerClusterer> */}
+    </GoogleMap>
+  )}
+)
+
+const Map = (props) => {
+  const count = props.markers.length
+  return (
+    <div>
+      <MarkerClustererGoogleMap
+        zoom={props.zoom}
+        selectedFilters={props.selectedFilters}
+        containerElement={
+          <div style={{ marginTop: 54, height: 'calc(100vh - 129px)', width: '100vw' }} />
         }
-        {/* </MarkerClusterer> */}
-  </GoogleMap>
-)}
-)
+        mapElement={
+          <div style={{ height: 'calc(100vh - 129px)', width: '100vw' }} />
+        }
+        markers={props.markers}
 
-
-const Map = (props) => (
-  <div>
-    <MarkerClustererGoogleMap
-      zoom={props.zoom}
-      selectedFilters={props.selectedFilters}
-      containerElement={
-        <div style={{ height: 'calc(100vh-75px)', width: '100vw' }} />
-      }
-      mapElement={
-        <div style={{ height: '91vh', width: '100vw' }} />
-      }
-      markers={props.markers}
-      onMarkerClick={props.onMarkerClick}
-    />
-    <Overlay />
-  </div>
-)
-export default Map
+        onMarkerClick={props.onMarkerClick}
+      />
+      <Overlay open={props.open} count={count}/>
+    </div>
+  )
+};
+export default Map;

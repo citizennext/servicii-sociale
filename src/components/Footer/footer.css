@@ -1,6 +1,6 @@
 #footer {
   text-align: left;
-  position: fixed;
+  position: relative;
   overflow: hidden;
   bottom: 0;
   right: 0;
