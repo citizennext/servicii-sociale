@@ -17,7 +17,7 @@ const Routes = (props) => (
       <IndexRoute component={Map}/>
       <Route path="despre" component={About} />
       <Route path="serviciu/:id" component={Details} />
-      <Route path="admin/ajutor" component={Help} />
+      <Route path="ajutor" component={Help} />
       <Route path="*" component={NotFound} />
     </Route>
   </Router>

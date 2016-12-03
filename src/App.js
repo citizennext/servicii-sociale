@@ -3,7 +3,6 @@ import R from 'ramda'
 import Sidebar from './components/Sidebar'
 import Footer from './components/Footer'
 import axios from 'axios'
-import './App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { lightBlue900 } from 'material-ui/styles/colors'
@@ -12,24 +11,16 @@ const muiTheme = getMuiTheme({
     accent1Color: lightBlue900,
   },
 });
-import {RefreshIndicator} from 'material-ui'
+import RefreshIndicator from 'material-ui/RefreshIndicator'
 const styles = {
   refresh: {
     display: 'inline-block',
     position: 'relative',
-    float: 'right',
-    marginRight: 30,
-    marginTop: -84,
-    zIndex: 1200,
     backgroundColor: 'none',
     boxShadow: 'none'
   },
   svg: {
     color: {lightBlue900}
-  },
-  content: {
-    marginLeft: 300,
-    marginTop: 70
   }
 }
 class App extends Component {
@@ -76,9 +67,7 @@ class App extends Component {
   }
   setSelectedFilter(key, value) {
     const selectedFilters = R.assoc(key, value, this.state.selectedFilters)
-    this.setState({
-      selectedFilters,
-    })
+    this.setState({ selectedFilters })
   }
   componentDidMount() {
     axios
@@ -96,56 +85,56 @@ class App extends Component {
       .catch(error => console.log(error))
   }
 
-  onMarkerClick = (marker, id) => {
-    this.props.route.history.push(`/serviciu/${id}`);
-    this.setState({open: false})
+  onMarkerClick = (marker) => {
+    this.props.route.history.push(`/serviciu/${marker.id}`);
+    this.setState({ open: false })
   }
 
   handleClose = () => this.setState({open: !this.state.open});
   render() {
     let children = null;
       children = React.cloneElement(this.props.children, {
-        // markers: this.state.markers,
-        // selectedFilters: this.state.selectedFilters,
         ...this.state,
         onMarkerClick: this.onMarkerClick.bind(this)
       })
     return (
+      <MuiThemeProvider muiTheme={muiTheme}>
       <div>
         {this.state.isLoading === true
-          ? <MuiThemeProvider muiTheme={muiTheme}>
-              <RefreshIndicator
-                size={50}
-                left={100}
-                top={0}
-                loadingColor='#37b8d4'
-                status="loading"
-                style={styles.refresh}
-              />
-            </MuiThemeProvider>
-          : <div>
-              <MuiThemeProvider muiTheme={muiTheme}>
-                <Sidebar
-                  open={this.state.open}
-                  handleClose={this.handleClose}
-                  markers={this.state.markers}
-                  servicii={this.state.servicii}
-                  type={this.state.type}
-                  districts={this.state.districts}
-                  beneficiaries={this.state.beneficiaries}
-                  changeDistrict={this.changeDistrict}
-                  changeService={this.changeService}
-                  changeBeneficiary={this.changeBeneficiary}
-                  changeType={this.changeType}
+          ? <div style={{width:'100vw', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+              <div style={{maxWidth: '50%', position: 'relative'}}>
+                <RefreshIndicator
+                  size={150}
+                  left={0}
+                  top={0}
+                  loadingColor='#37b8d4'
+                  status="loading"
+                  style={styles.refresh}
                 />
-              </MuiThemeProvider>
-              <div className="content">
+              </div>
+            </div>
+          : <div>
+              <Sidebar
+                open={this.state.open}
+                handleClose={this.handleClose}
+                markers={this.state.markers}
+                servicii={this.state.servicii}
+                type={this.state.type}
+                districts={this.state.districts}
+                beneficiaries={this.state.beneficiaries}
+                changeDistrict={this.changeDistrict}
+                changeService={this.changeService}
+                changeBeneficiary={this.changeBeneficiary}
+                changeType={this.changeType}
+              />
+              <div>
                 {children}
               </div>
               <Footer open={this.state.open} />
             </div>
-            }
-          </div>
+        }
+      </div>
+    </MuiThemeProvider>
     )
   }
 }
