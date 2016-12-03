@@ -19,6 +19,7 @@ const MarkerClustererGoogleMap = withGoogleMap(props => {
         )
       ))(markers)
     }
+
   return (
     <GoogleMap
       defaultZoom={props.zoom}

@@ -85,10 +85,11 @@ class App extends Component {
       .catch(error => console.log(error))
   }
 
+
   onMarkerClick = (marker) => {
     this.props.route.history.push(`/serviciu/${marker.id}`);
     this.setState({ open: false })
-  }
+  }  
 
   handleClose = () => this.setState({open: !this.state.open});
   render() {
