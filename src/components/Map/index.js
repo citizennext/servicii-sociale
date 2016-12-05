@@ -9,6 +9,8 @@ import Overlay from './overlay';
 const MarkerClustererGoogleMap = withGoogleMap(props => {
   const filterData = (markers, selectedFilters) => {
     const activeFilterKeys = R.keys(R.filter(R.identity, R.dissoc('categorie', selectedFilters)))
+
+
     const filterInType = d => !selectedFilters.categorie || d.categorie.indexOf(selectedFilters.categorie) >= 0
     return R.compose(
       R.filter(filterInType),

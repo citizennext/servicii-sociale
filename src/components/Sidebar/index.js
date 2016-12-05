@@ -83,7 +83,9 @@ const styles = {
 
 const Sidebar = (props) => {
   //const markersPerDistricts = props.markers.reduce((a,b) => { a[b.jud] = (a[b.jud] || 0) + 1; return a }, {})
-
+  const filteredServices = props.selectedFilters.category
+    ? props.servicii.filter(service => service.cat === props.selectedFilters.category)
+    : ['Alegeti cel putin o categorie']
   return (
     <Drawer
       containerStyle={{height: '100vh', top: 0, overflow:'none', backgroundColor: '#26b2d0'}}
@@ -114,7 +116,7 @@ const Sidebar = (props) => {
               listStyle={{width: '220px', color: '#37b8d4'}}
               textFieldStyle={{width: '100%', color:'#ffffff'}}
               floatingLabelText='Judet'
-              hintText='Introduceți un județ'
+              hintText='Alegeți un județ'
               filter={AutoComplete.caseInsensitiveFilter}
               maxSearchResults={5}
               dataSource={props.districts}
@@ -126,11 +128,23 @@ const Sidebar = (props) => {
               style={{borderColor: '#37b8d4!important', marginLeft: 20, width:'83%'}}
               listStyle={{width: 'auto', color: '#37b8d4'}}
               textFieldStyle={{width: '100%', color:'#ffffff'}}
-              floatingLabelText='Tip serviciu'
-              hintText='Introduceți un serviciu'
+              floatingLabelText='Categoria de servicii'
+              hintText='Alegeți o categorie'
               filter={AutoComplete.caseInsensitiveFilter}
               maxSearchResults={5}
-              dataSource={props.servicii}
+              dataSource={props.categories}
+              openOnFocus={true}
+              onNewRequest={(value) => props.changeCategory(value)}
+            />
+            <AutoComplete
+              style={{borderColor: '#37b8d4!important', marginLeft: 20, width:'83%'}}
+              listStyle={{width: 'auto', color: '#37b8d4'}}
+              textFieldStyle={{width: '100%', color:'#ffffff'}}
+              floatingLabelText='Tipul serviciului'
+              hintText='Alegeți tipul serviciului'
+              filter={AutoComplete.caseInsensitiveFilter}
+              maxSearchResults={5}
+              dataSource={filteredServices}
               dataSourceConfig={serviciiConfigs}
               openOnFocus={true}
               onNewRequest={(value) => props.changeService(value.cod)}
@@ -139,8 +153,8 @@ const Sidebar = (props) => {
               style={{borderColor: '#37b8d4!important', marginLeft: 20, width:'83%'}}
               listStyle={{width: 'auto', color: '#37b8d4'}}
               textFieldStyle={{width: '100%', color:'#ffffff'}}
-              floatingLabelText='Tip organizare serviciu'
-              hintText='Introduceți tipul de organizare'
+              floatingLabelText='Forma organizare serviciu'
+              hintText='Alegeți forma de organizare'
               filter={AutoComplete.caseInsensitiveFilter}
               maxSearchResults={5}
               dataSource={props.type}

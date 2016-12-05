@@ -108,6 +108,7 @@ const Organisation = styled.h2`
   color: #37b8d4;
   font-size: 24px;
   font-weight: 100;
+  margin-top: 0px;
 `;
 const Provider = styled.div`
   color: #666666;

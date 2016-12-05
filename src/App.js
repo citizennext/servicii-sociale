@@ -64,6 +64,7 @@ class App extends Component {
     this.changeService = this.setSelectedFilter.bind(this, 'cod')
     this.changeType = this.setSelectedFilter.bind(this, 'type')
     this.changeBeneficiary = this.setSelectedFilter.bind(this, 'categorie')
+    this.changeCategory = this.setSelectedFilter.bind(this, 'category')
   }
   setSelectedFilter(key, value) {
     const selectedFilters = R.assoc(key, value, this.state.selectedFilters)
@@ -74,10 +75,20 @@ class App extends Component {
       .get('https://socent.cezarneaga.eu/test.json')
       .then(data => {
         const districtsMap = data.data.providers.map(marker => marker.jud)
+        const servicesMap = data.data.ss.map(service => service.cat)
+        const categories = servicesMap.filter((v,i) => servicesMap.indexOf(v) === i)
         const districts = districtsMap.filter((v,i) => districtsMap.indexOf(v) === i)
+        const newMarkers = data.data.providers.map(marker => {
+          const categs = marker.cod
+            ? data.data.ss.find(service => service.cod === marker.cod).cat
+            : null
+          return Object.assign(marker, {category: categs})
+        }
+        )
         this.setState({
           districts: districts,
-          markers: data.data.providers,
+          markers: newMarkers,
+          categories,
           servicii: data.data.ss,
           isLoading: false
         });
@@ -125,11 +136,14 @@ class App extends Component {
                 handleClose={this.handleClose}
                 markers={this.state.markers}
                 servicii={this.state.servicii}
+                categories={this.state.categories}
                 type={this.state.type}
                 districts={this.state.districts}
+                selectedFilters={this.state.selectedFilters}
                 beneficiaries={this.state.beneficiaries}
                 changeDistrict={this.changeDistrict}
                 changeService={this.changeService}
+                changeCategory={this.changeCategory}
                 changeBeneficiary={this.changeBeneficiary}
                 changeType={this.changeType}
               />
