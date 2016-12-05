@@ -95,7 +95,7 @@ const Sidebar = (props) => {
           <Link to="/">
             <span className="harta">Harta</span>
             <span className="servicii">Serviciilor Sociale</span>
-            <span className="autorizate">Autorizate</span>
+            <span className="autorizate">Licențiate</span>
           </Link>
         </div>
 
@@ -111,10 +111,10 @@ const Sidebar = (props) => {
           <div className="filter-child">
             <AutoComplete
               style={{borderColor: '#37b8d4!important', marginLeft: 20, width:'83%'}}
-              listStyle={{width: '220px', color: '#37b8d4', fontSize: 13}}
-              textFieldStyle={{width: '100%', color:'#ffffff', fontSize: 13}}
+              listStyle={{width: '220px', color: '#37b8d4'}}
+              textFieldStyle={{width: '100%', color:'#ffffff'}}
               floatingLabelText='Judet'
-              hintText='Introduceti un judet'
+              hintText='Introduceți un județ'
               filter={AutoComplete.caseInsensitiveFilter}
               maxSearchResults={5}
               dataSource={props.districts}
@@ -124,11 +124,10 @@ const Sidebar = (props) => {
             />
             <AutoComplete
               style={{borderColor: '#37b8d4!important', marginLeft: 20, width:'83%'}}
-              listStyle={{width: 'auto', color: '#37b8d4', fontSize: '13px!important'}}
-              menuStyle={{fontSize: '13px!important',width:'100%'}}
-              textFieldStyle={{width: '100%', color:'#ffffff', fontSize: 13}}
+              listStyle={{width: 'auto', color: '#37b8d4'}}
+              textFieldStyle={{width: '100%', color:'#ffffff'}}
               floatingLabelText='Tip serviciu'
-              hintText='Introduceti un serviciu'
+              hintText='Introduceți un serviciu'
               filter={AutoComplete.caseInsensitiveFilter}
               maxSearchResults={5}
               dataSource={props.servicii}
@@ -139,9 +138,9 @@ const Sidebar = (props) => {
             <AutoComplete
               style={{borderColor: '#37b8d4!important', marginLeft: 20, width:'83%'}}
               listStyle={{width: 'auto', color: '#37b8d4'}}
-              textFieldStyle={{width: '100%', color:'#ffffff',fontSize: 13}}
+              textFieldStyle={{width: '100%', color:'#ffffff'}}
               floatingLabelText='Tip organizare serviciu'
-              hintText='Introduceti un tip de organizare'
+              hintText='Introduceți tipul de organizare'
               filter={AutoComplete.caseInsensitiveFilter}
               maxSearchResults={5}
               dataSource={props.type}
@@ -151,10 +150,10 @@ const Sidebar = (props) => {
             />
             <AutoComplete
               style={{borderColor: '#37b8d4!important', marginLeft: 20, width:'83%'}}
-              listStyle={{width: 'auto', color: '#37b8d4', fontSize: 13}}
-              textFieldStyle={{width: '100%', color:'#ffffff', fontSize: 13}}
+              listStyle={{width: 'auto', color: '#37b8d4'}}
+              textFieldStyle={{width: '100%', color:'#ffffff'}}
               floatingLabelText='Beneficiari'
-              hintText='Introduceti un beneficiar'
+              hintText='Introduceți un beneficiar'
               filter={AutoComplete.caseInsensitiveFilter}
               maxSearchResults={12}
               dataSource={props.beneficiaries}

@@ -27,7 +27,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: true,
+      open: false,
       isLoading: true,
       zoom: 7,
       selectedFilters: {},
@@ -71,7 +71,7 @@ class App extends Component {
   }
   componentDidMount() {
     axios
-      .get('https://socent.cezarneaga.eu/test.json')
+      .get('http://harti.cezarneaga.eu/test.json')
       .then(data => {
         const districtsMap = data.data.providers.map(marker => marker.jud)
         const districts = districtsMap.filter((v,i) => districtsMap.indexOf(v) === i)

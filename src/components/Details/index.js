@@ -11,11 +11,6 @@ const Container = styled.div`
   min-height: calc(100vh - 129px);
   width: 100vw;
 `;
-const DetailsCard = styled.div`
-  z-index: 1200;
-  min-height: 50vh;
-  background-color: #37b8d4;
-`;
 const OverlayBar = styled.div`
   position: fixed;
   top: 0;
@@ -24,50 +19,115 @@ const OverlayBar = styled.div`
   width:100vw;
   background-color: rgba(255, 255, 255, 0.6);
 `;
+const Map = styled.div`
+  margin-top: 54px;
+  height: calc(60vh - 129px);
+  width: 100vw;
+  z-index: 100
+`;
+const DetailsCard = styled.div`
+  z-index: 1200;
+  min-height: 40vh;
+  background-color: #37b8d4;
+`;
 const Over = styled(Paper)`
-  width: 75vw;
-  margin-top: -100px;
+  width: 60vw;
+  margin-top: -10vh;
   margin-bottom: 20px;
   background-color: #ffffff;
   margin-right: auto;
   margin-left: auto;
-  padding: 40px;
   position: relative;
+  display: flex;
   z-index: 11111!important;
-  font-size: 13px;
+  font-size: 14px;
   overflow: hidden;
+  @media(max-width: 767px) {
+    flex-direction: column;
+    font-size: 13px;
+    width: 90vw;
+  }
 `;
-const Map = styled.div`
-  margin-top: 54px;
-  height: 40vh;
-  width: 100vw;
-  z-index: 100
+const Third = styled.div`
+  width: 20vw;
+  padding: 2em;
+  min-height: 40vh;
+  position: relative;
+  background-color: ${props => props.gray ? '#666666' : '#ffffff'};
+  color: ${props => props.gray ? '#ffffff' : '#666666'};
+  @media(max-width: 767px) {
+    width: auto;
+  }
+`;
+const TwoThirds = styled.div`
+  width: 40vw;
+  padding: 2em;
+  background-color: ${props => props.gray ? '#666666' : '#ffffff'};
+  @media(max-width: 767px) {
+    width: auto;
+  }
 `;
 const List = styled.ul`
-  padding: 0 0 10px 16px;
-  & > li {
-    padding-bottom: 5px;
+  padding: 0 0 10px 0px;
+  list-style: none;
+`;
+const Bullet = styled.li`
+  padding-bottom: 5px;
+  &:before {
+    background-color: #37b8d4;
+    content: "";
+    line-height: 1em;
+    width: .5em;
+    height: .5em;
+    float: left;
+    margin: .25em .5em 0 .25em;
+    border-radius: 50%;
   }
 `;
-const Half = styled.div`
-  width: 48%;
-  margin-right: ${props => props.last ? '0' : '4%'};
-  float: left;
-  display: block;
-  @media(max-width: 767px) {
-    width: 100%;
-    margin-right: 0
-  }
+const Points = styled.div`
+  height: 45px;
+  width: 100%;
+
+`;
+const PointsText = styled.div`
+  padding-left: 30px;
+  line-height: 1.3em;
+  text-overflow: ${props => props.email ? 'ellipsis;' : 'none'};
+
+`;
+const Cap = styled.div`
+  bottom: 30px;
+  width: 78%;
+  margin: 0 auto;
+  text-align: center;
+  text-transform: uppercase;
+  color: #cccccc;
+  font-weight: 18px;
+`;
+const Organisation = styled.h2`
+  color: #37b8d4;
+  font-size: 24px;
+  font-weight: 100;
+`;
+const Provider = styled.div`
+  color: #666666;
+  font-size: 18px;
+  font-weight: 400;
+`;
+const Services = styled.div`
+  color: #000000;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-top: 30px;
 `;
 const styles = {
   icon:{
-    color: '#37b8d4',
-    width: 20
-  },
-  chip:{
-    position:'absolute',
-    right:10,
-    top:10
+    color: '#ffcc00',
+    width: 30,
+    float:'left',
+    paddingTop: 0,
+    fontSize: 18
   }
 }
 const Details = (props) => {
@@ -92,27 +152,27 @@ const Details = (props) => {
       </Map>
       <DetailsCard>
         <Over zDepth={2}>
-          <h2>{marker.name}</h2>
-          <Half>
-            <h3>{marker.furnizor}</h3>
-            <p><i style={styles.icon} className="fa fa-map-marker"></i> {marker.adresa}, {marker.oras}, {marker.jud}</p>
-            <p><i style={styles.icon} className="fa fa-phone"></i> {marker.phone}</p>
-            <p><i style={styles.icon} className="fa fa-envelope"></i> <a href={`mailto:${marker.email}`}>{marker.email}</a></p>
-            <p><i style={styles.icon} className="fa fa-users"></i> <span style={{fontSize:18}}>{marker.capacitate ? marker.capacitate : "?"}</span> locuri disponibile</p>
-          </Half>
-          <Half last>
-            <h3>Servicii</h3>
+          <Third gray>
+            <Points><i style={styles.icon} className="fa fa-map-marker"></i><PointsText>{marker.adresa}, {marker.oras}, {marker.jud}</PointsText></Points>
+            <Points><i style={styles.icon} className="fa fa-phone"></i><PointsText> {marker.phone}</PointsText></Points>
+            <Points email><i style={styles.icon} className="fa fa-envelope"></i><PointsText email><a href={`mailto:${marker.email}`} style={{color: '#ffffff', textDecoration: 'none'}}>{marker.email}</a></PointsText></Points>
+            <Cap><span style={{fontSize:72, fontWeight: 700, clear:'both', display:'block', color: '#ffffff'}}>{marker.capacitate ? marker.capacitate : "?"}</span> locuri disponibile</Cap>
+          </Third>
+          <TwoThirds>
+            <Organisation>{marker.name}</Organisation>
+            <Provider>{marker.furnizor}</Provider>
+            <Services>Servicii</Services>
             <List>
               {services !== null
                 ? services.servicii.map((service, i) => {
                   return (
-                    <li key={i}>{service}</li>
+                    <Bullet key={i}>{service}</Bullet>
                   )
                 })
-                : <li>Acest centru nu are inca listate serviciile oferite</li>
+                : <Bullet>Acest centru nu are inca listate serviciile oferite</Bullet>
               }
             </List>
-          </Half>
+          </TwoThirds>
         </Over>
       </DetailsCard>
     </Container>
