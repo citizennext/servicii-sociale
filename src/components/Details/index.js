@@ -131,6 +131,9 @@ const styles = {
     fontSize: 18
   }
 }
+const phoneNumbers = (number) => {
+  return `0${number}`
+}
 const Details = (props) => {
   const marker = props.markers
     .find(marker => marker.id === parseFloat(props.params.id))
@@ -155,7 +158,8 @@ const Details = (props) => {
         <Over zDepth={2}>
           <Third gray>
             <Points><i style={styles.icon} className="fa fa-map-marker"></i><PointsText>{marker.adresa}, {marker.oras}, {marker.jud}</PointsText></Points>
-            <Points><i style={styles.icon} className="fa fa-phone"></i><PointsText> {marker.phone}</PointsText></Points>
+            <Points><i style={styles.icon} className="fa fa-phone"></i><PointsText>
+              {marker.phone ? phoneNumbers(marker.phone) : null}</PointsText></Points>
             <Points email><i style={styles.icon} className="fa fa-envelope"></i><PointsText email><a href={`mailto:${marker.email}`} style={{color: '#ffffff', textDecoration: 'none'}}>{marker.email}</a></PointsText></Points>
             <Cap><span style={{fontSize:72, fontWeight: 700, clear:'both', display:'block', color: '#ffffff'}}>{marker.capacitate ? marker.capacitate : "?"}</span> locuri disponibile</Cap>
           </Third>

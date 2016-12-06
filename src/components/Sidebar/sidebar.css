@@ -2,6 +2,12 @@
 .nume {
   padding: 3em 1em;
 }
+button.meta, a.meta{
+  float:left;
+  width: 48px;
+  padding-bottom: 10px;
+  display: inline;
+}
 .harta {
   font-size: 3em;
   font-weight: 100;
@@ -32,9 +38,19 @@
 .filter label{
   color: #ffffff!important;
 }
+
 .filter button span{
   font-size: 13px!important
 }
 .filter hr{
   border:solid 1px #5dd3ec!important;
+}
+
+input.combo::placeholder {
+  color: #ffffff!important;
+  font-size: 16px;
+}
+.filter input::placeholder {
+  color: #ffffff!important;
+  font-size: 16px;
 }

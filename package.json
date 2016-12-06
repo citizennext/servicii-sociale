@@ -2,7 +2,7 @@
   "name": "servicii",
   "version": "0.2.0",
   "private": true,
-  "homepage": "https://harti.cezarneaga.eu",
+  "homepage": "http://harta-furnizori.mmuncii.ro",
   "devDependencies": {
     "babel-plugin-transform-flow-strip-types": "^6.18.0",
     "eslint": "^3.8.1",
@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "axios": "^0.15.2",
-    "belle": "^2.0.9",
+    "belle": "^3.0.0",
     "history": "^4.4.1",
     "material-ui": "^0.16.4",
     "ramda": "^0.22.1",

@@ -4,3 +4,22 @@ body {
   font-family: sans-serif;
 
 }
+input {
+  background-color: transparent;
+}
+h2 {
+  font-weight: 100;
+  font-size: 30px;
+  color: #37b8d4;
+  margin-top: 40px;
+}
+h3 {
+  font-weight: 100;
+  color: #37b8d4;
+  margin-top: 30px;
+  margin-bottom: 5px;
+}
+p{
+  line-height: 1.4em;
+
+}

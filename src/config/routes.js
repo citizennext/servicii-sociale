@@ -6,6 +6,7 @@ import NotFound from '../components/NotFound'
 import About from '../components/About'
 import Details from '../components/Details'
 import Help from '../components/Help'
+import Contact from '../components/Contact'
 import Map from '../components/Map/'
 
 import injectTapEventPlugin from 'react-tap-event-plugin'
@@ -18,6 +19,7 @@ const Routes = (props) => (
       <Route path="despre" component={About} />
       <Route path="serviciu/:id" component={Details} />
       <Route path="ajutor" component={Help} />
+      <Route path="contact" component={Contact} />
       <Route path="*" component={NotFound} />
     </Route>
   </Router>

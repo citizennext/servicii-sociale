@@ -4,11 +4,17 @@ import Sidebar from './components/Sidebar'
 import Footer from './components/Footer'
 import axios from 'axios'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import Dialog from 'material-ui/Dialog'
+import IconButton from 'material-ui/IconButton'
+import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import { lightBlue900 } from 'material-ui/styles/colors'
+import { lightBlue900, white } from 'material-ui/styles/colors'
 const muiTheme = getMuiTheme({
   palette: {
     accent1Color: lightBlue900,
+    hintColor: white,
+    placeHolderColor: white,
+
   },
 });
 import RefreshIndicator from 'material-ui/RefreshIndicator'
@@ -29,6 +35,7 @@ class App extends Component {
     this.state = {
       open: true,
       isLoading: true,
+      disclaimerOpen: false,
       zoom: 7,
       selectedFilters: {},
       servicii: [],
@@ -72,12 +79,12 @@ class App extends Component {
   }
   componentDidMount() {
     axios
-      .get('https://socent.cezarneaga.eu/test.json')
+      .get('http://harta-furnizori.mmuncii.ro/data.json')
       .then(data => {
         const districtsMap = data.data.providers.map(marker => marker.jud)
+        const districts = districtsMap.filter((v,i) => districtsMap.indexOf(v) === i)
         const servicesMap = data.data.ss.map(service => service.cat)
         const categories = servicesMap.filter((v,i) => servicesMap.indexOf(v) === i)
-        const districts = districtsMap.filter((v,i) => districtsMap.indexOf(v) === i)
         const newMarkers = data.data.providers.map(marker => {
           const categs = marker.cod
             ? data.data.ss.find(service => service.cod === marker.cod).cat
@@ -102,7 +109,7 @@ class App extends Component {
     this.setState({ open: false })
   }
 
-
+  handleDisclaimer = () => this.setState({disclaimerOpen: !this.state.disclaimerOpen});
   handleClose = () => this.setState({open: !this.state.open});
   handleBack = () => {
     this.setState({open: !this.state.open})
@@ -146,11 +153,24 @@ class App extends Component {
                 changeCategory={this.changeCategory}
                 changeBeneficiary={this.changeBeneficiary}
                 changeType={this.changeType}
+                handleDisclaimer={this.handleDisclaimer}
               />
               <div>
                 {children}
               </div>
               <Footer open={this.state.open} />
+              <Dialog
+                title="Harta Serviciilor Sociale Licentiate - Versiunea Beta"
+                open={this.state.disclaimerOpen}
+                onRequestClose={this.handleDisclaimer}
+              >
+                Harta serviciilor sociale licențiate este în versiune Beta. În această fază, softul este testat în practică de către utilizatori, iar apoi vor fi făcute modificări pentru a înlătura eventualele erori. Datele prezentate pe platformă sunt la nivelul lunii septembrie a anului 2016 și sunt în curs de actualizare. Utilizatorii pot contribui la acuratețea datelor prin trimiterea de observații și propuneri de îmbunătățire, la adresa de email <a href="mailto:acreditare@mmuncii.gov.ro">acreditare@mmuncii.gov.ro</a>.
+                <IconButton onTouchTap={this.handleDisclaimer}
+                  style={{position:'absolute', top: 0, right:0}}>
+                  <NavigationClose />
+                </IconButton>
+
+              </Dialog>
             </div>
         }
       </div>
