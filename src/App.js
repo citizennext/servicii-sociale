@@ -82,7 +82,7 @@ class App extends Component {
       .get('http://harta-furnizori.mmuncii.ro/data.json')
       .then(data => {
         const districtsMap = data.data.providers.map(marker => marker.jud)
-        const districts = districtsMap.filter((v,i) => districtsMap.indexOf(v) === i)
+        const districts = districtsMap.filter((v,i) => districtsMap.indexOf(v) === i).sort()
         const servicesMap = data.data.ss.map(service => service.cat)
         const categories = servicesMap.filter((v,i) => servicesMap.indexOf(v) === i)
         const newMarkers = data.data.providers.map(marker => {
