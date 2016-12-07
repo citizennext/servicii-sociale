@@ -21,5 +21,14 @@ h3 {
 }
 p{
   line-height: 1.4em;
-
+  color: #666;
+}
+a {
+  border-bottom: solid 3px #ffcc00;
+  text-decoration: none;
+  color: #555;
+}
+a:hover{
+  color: #37b8d4;
+  border-bottom: solid 3px #37b8d4;
 }

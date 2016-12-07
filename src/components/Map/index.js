@@ -10,7 +10,6 @@ const MarkerClustererGoogleMap = withGoogleMap(props => {
   const filterData = (markers, selectedFilters) => {
     const activeFilterKeys = R.keys(R.filter(R.identity, R.dissoc('categorie', selectedFilters)))
 
-
     const filterInType = d => !selectedFilters.categorie || d.categorie.indexOf(selectedFilters.categorie) >= 0
     return R.compose(
       R.filter(filterInType),
@@ -20,9 +19,13 @@ const MarkerClustererGoogleMap = withGoogleMap(props => {
           R.pick(activeFilterKeys, selectedFilters)
         )
       ))(markers)
-    }
+  }
+  const count = R.isEmpty(props.selectedFilters)
+    ? props.markers.length
+    : filterData(props.markers, props.selectedFilters).length
 
   return (
+    <div>
     <GoogleMap
       defaultZoom={props.zoom}
       defaultCenter={{ lat: 46.2, lng: 24 }}
@@ -52,11 +55,12 @@ const MarkerClustererGoogleMap = withGoogleMap(props => {
           ))
       }
     </GoogleMap>
+    <Overlay open={props.open} count={count}/>
+  </div>
   )}
 )
 
 const Map = (props) => {
-  const count = props.markers.length
   return (
     <div>
       <MarkerClustererGoogleMap
@@ -69,10 +73,9 @@ const Map = (props) => {
           <div style={{ height: 'calc(100vh - 129px)', width: '100vw' }} />
         }
         markers={props.markers}
-
+        open={props.open}
         onMarkerClick={props.onMarkerClick}
       />
-      <Overlay open={props.open} count={count}/>
     </div>
   )
 };

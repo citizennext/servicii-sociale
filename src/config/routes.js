@@ -8,6 +8,8 @@ import Details from '../components/Details'
 import Help from '../components/Help'
 import Contact from '../components/Contact'
 import Map from '../components/Map/'
+import Certification from '../components/Certification/'
+import Info from '../components/Info/'
 
 import injectTapEventPlugin from 'react-tap-event-plugin'
 injectTapEventPlugin()
@@ -20,6 +22,8 @@ const Routes = (props) => (
       <Route path="serviciu/:id" component={Details} />
       <Route path="ajutor" component={Help} />
       <Route path="contact" component={Contact} />
+      <Route path="acreditare" component={Certification} />
+      <Route path="info" component={Info} />
       <Route path="*" component={NotFound} />
     </Route>
   </Router>

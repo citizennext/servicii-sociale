@@ -7,8 +7,10 @@ const Icon = styled.a`
   color: #666;
   margin: 0 10px 0 0;
   text-align: center;
+  border: none;
   &:hover {
     color: #7db9e8;
+    border: none;
   }
 `;
 const Container = styled.div`

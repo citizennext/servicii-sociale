@@ -161,7 +161,7 @@ const Details = (props) => {
             <Points><i style={styles.icon} className="fa fa-phone"></i><PointsText>
               {marker.phone ? phoneNumbers(marker.phone) : null}</PointsText></Points>
             <Points email><i style={styles.icon} className="fa fa-envelope"></i><PointsText email><a href={`mailto:${marker.email}`} style={{color: '#ffffff', textDecoration: 'none'}}>{marker.email}</a></PointsText></Points>
-            <Cap><span style={{fontSize:72, fontWeight: 700, clear:'both', display:'block', color: '#ffffff'}}>{marker.capacitate ? marker.capacitate : "?"}</span> locuri disponibile</Cap>
+            <Cap><span style={{fontSize:72, fontWeight: 700, clear:'both', display:'block', color: '#ffffff'}}>{marker.capacitate ? marker.capacitate : "?"}</span> capacitate</Cap>
           </Third>
           <TwoThirds>
             <Organisation>{marker.name}</Organisation>

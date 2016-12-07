@@ -29,7 +29,7 @@ const Overlay = (props) => {
   return (
       <OverlayBar>
         <div style={props.open ? {paddingLeft:312,marginTop:3} : {paddingLeft:54,marginTop:3}}>
-          <Title><span className="count">{props.count}</span> înregistrări</Title>
+          <Title><span className="count">{props.count}</span> servicii licențiate</Title>
         </div>
       </OverlayBar>
   )

@@ -1,11 +1,19 @@
 import React, {Component, PropTypes} from "react"
 import {Link} from "react-router"
-import {Drawer, Divider, List, makeSelectable, IconButton, AutoComplete} from "material-ui"
+import Drawer from 'material-ui/Drawer'
+import Divider from 'material-ui/Divider'
+import List from 'material-ui/List'
+import makeSelectable from 'material-ui/List/makeSelectable'
+import IconButton from 'material-ui/IconButton'
+import AutoComplete from 'material-ui/AutoComplete'
+import ListItem from 'material-ui/List/ListItem'
 import ActionHelp from "material-ui/svg-icons/action/help"
 import ActionInfo from 'material-ui/svg-icons/action/info';
+import ActionAssessment from 'material-ui/svg-icons/action/assessment';
 import LocalPostOffice from 'material-ui/svg-icons/maps/local-post-office';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
+import SocialNotifications from 'material-ui/svg-icons/social/notifications';
 import { ComboBox, Option } from 'belle';
 import belle from 'belle';
 import R from 'ramda'
@@ -147,7 +155,10 @@ const Sidebar = (props) => {
             </ComboBox>
             <ComboBox className="combo"
               placeholder={ 'Tipul serviciului' }
-              onUpdate={ (event) => { props.changeCategory(event.value)} }
+              onUpdate={ (event) => {
+                props.changeCategory(event.value)
+                console.log(event);
+              } }
               menuStyle={{maxHeight: 250, overflow: 'scroll'}}
             >
               {
@@ -207,7 +218,21 @@ const Sidebar = (props) => {
           </div>
         </div>
         <Divider style={{flexGrow:'1', backgroundColor:'#26b2d0'}}/>
-
+        <Divider style={{ backgroundColor:'rgba(255, 255, 255, 0.2)'}}/>
+        <ListItem
+          value="acreditare"
+          primaryText="Acreditare"
+          style={{color: '#ffffff'}}
+          leftIcon={<ActionAssessment color='#ffffff'/>}
+          containerElement={<Link to="/acreditare" />} />
+          <Divider style={{ backgroundColor:'rgba(255, 255, 255, 0.2)'}}/>
+        <ListItem
+          value="info"
+          primaryText="Informatii Generale"
+          style={{color: '#ffffff'}}
+          leftIcon={<SocialNotifications color='#ffffff'/>}
+          containerElement={<Link to="/info" />} />
+          <Divider style={{ backgroundColor:'rgba(255, 255, 255, 0.2)'}}/>
       </SelectableList>
       <IconButton onTouchTap={props.handleDisclaimer} className="meta" touch={true} tooltipPosition="top-right" tooltip="Disclaimer">
         <ActionInfo color='#ffffff'/>
