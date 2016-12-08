@@ -50,6 +50,9 @@ input.combo::placeholder {
   color: #ffffff!important;
   font-size: 16px;
 }
+.combo div{
+  color:#ffffff!important;
+}
 .filter input::placeholder {
   color: #ffffff!important;
   font-size: 16px;

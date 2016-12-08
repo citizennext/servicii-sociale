@@ -4,7 +4,6 @@ import Paper from 'material-ui/Paper';
 import FlatButton from 'material-ui/FlatButton';
 import NavigationArrowBack from 'material-ui/svg-icons/navigation/arrow-back';
 import styled from 'styled-components';
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;

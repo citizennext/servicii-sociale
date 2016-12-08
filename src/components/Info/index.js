@@ -40,13 +40,10 @@ const Info = (props) => {
       </OverlayBar>
       <div style={{minHeight: '100%', marginTop: '54px', maxWidth: '100vw'}}>
         <h2>Informatii Generale</h2>
-
-
+        <h3>Descarca lista serviciilor sociale licențiate</h3>
+        <p>Tabelul cu toate serviciile sociale licențiate din Romania poate fi descarcat de <a href="http://www.mmuncii.ro/j33/images/Documente/Familie/2016/ServiciiSociale_10nov2016.pdf" title="Lista serviciilor sociale licențiate - Descarcare format pdf">aici (format pdf).</a></p>
       </div>
     </Container>
   )
 }
-
-
-
 export default Info
