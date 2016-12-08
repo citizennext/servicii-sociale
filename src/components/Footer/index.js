@@ -1,10 +1,17 @@
 import React from 'react';
 import Img from '../../components/Img'
 import logo from '../../../public/min-logo.png'
+import govithubLogo from '../../../public/govithub-logo.png'
 import styled from 'styled-components';
 
+const Logos = styled.div` `;
 const Logo = styled(Img)`
   margin-left: ${props => props.open ? '150px' : '0'};
+  @media(max-width: 767px) {
+    margin: 0;
+  }
+`;
+const GovITHUbLogo = styled(Img)`
   @media(max-width: 767px) {
     margin: 0;
   }
@@ -32,12 +39,15 @@ const FooterBox = styled.div`
   width: 80vw;
   height: 75px;
   padding: 0 10vw;
-  background-color: #f0f0f0;
+  background-color: #eee;
   border-top: 1px solid rgba(0,0,0,.05);
 `;
 const Footer= (props) => (
   <FooterBox>
-    <Logo open={props.open} src={logo} alt='Ministerul Muncii' />
+		<Logos>
+	    <Logo open={props.open} src={logo} alt='Ministerul Muncii' />
+			<GovITHUbLogo open={props.open} src={govithubLogo} alt='GovITHub' />
+		</Logos>
     <SocialMedia>
       <Icon href="https://twitter.com/MMFPSPV" target="_blank" title="twitter"><i className="fa fa-twitter"></i></Icon>
       <Icon href="https://www.facebook.com/Ministerul.Muncii.Romania" target="_blank" title="facebook"><i className="fa fa-facebook"></i></Icon>
