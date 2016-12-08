@@ -2,6 +2,7 @@ import React from 'react';
 import { browserHistory } from 'react-router';
 import FlatButton from 'material-ui/FlatButton';
 import NavigationArrowBack from 'material-ui/svg-icons/navigation/arrow-back';
+import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import styled from 'styled-components';
 const Icon = styled.a`
   color: #666;
@@ -31,7 +32,7 @@ const OverlayBar = styled.div`
   z-index: 1201;
   height: 54px;
   width:100vw;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.9);
 `;
 const Contact = (props) => {
   return (
@@ -45,20 +46,32 @@ const Contact = (props) => {
           icon={<NavigationArrowBack color='#333333' />}
         />
       </OverlayBar>
-      <div style={{minHeight: '100%', marginTop: '54px', maxWidth: '100vw'}}>
+      <div className="paper-faq" style={{minHeight: '100%', marginTop: '54px', maxWidth: '100vw'}}>
         <h2>Contact</h2>
-        <h3>Ministerul Muncii, Familiei, Protecţiei Sociale și Persoanelor Vârstnice</h3>
-        <p><strong>Adresă:</strong> str. Dem.I.Dobrescu nr.2 - 4 sectorul 1 Bucureşti, cod poștal 010026</p>
-        <p><strong>Adresă web:</strong> http://www.mmuncii.gov.ro</p>
-        <p><strong>Adresă email:</strong>   acreditare@mmuncii.gov.ro</p>
-        <p><strong>Telefon centrală:</strong> 021.315.85.56</p>
 
-        <h3>Programul de funcționare al instituței:</h3>
-        <p><strong>Luni - Joi:</strong> 08.00 - 16.30</p>
-        <p><strong>Vineri:</strong> 08.00 - 14.00</p>
-        <Icon href="https://www.facebook.com/Ministerul.Muncii.Romania" target="_blank" title="twitter"><i className="fa fa-facebook"></i></Icon>
-        <Icon href="https://twitter.com/MMFPSPV" target="_blank" title="twitter"><i className="fa fa-twitter"></i></Icon>
-        <Icon href="https://www.youtube.com/channel/UC7Vj9DEdNhlkCl4-4r4VPPQ" target="_blank" title="twitter"><i className="fa fa-youtube"></i></Icon>
+				<Card className="faq-card">
+				    <CardHeader title="Ministerul Muncii, Familiei, Protecţiei Sociale și Persoanelor Vârstnice" className="faq-title"/>
+				    <CardText className="faq-content">
+							<p><strong>Adresă:</strong> str. Dem.I.Dobrescu nr.2 - 4 sectorul 1 Bucureşti, cod poștal 010026</p>
+			        <p><strong>Adresă web:</strong> http://www.mmuncii.gov.ro</p>
+			        <p><strong>Adresă email:</strong>   acreditare@mmuncii.gov.ro</p>
+			        <p><strong>Telefon centrală:</strong> 021.315.85.56</p>
+				    </CardText>
+				</Card>
+
+				<Card className="faq-card">
+				    <CardHeader title="Programul de funcționare al instituței" className="faq-title"/>
+				    <CardText className="faq-content">
+							<p><strong>Luni - Joi:</strong> 08.00 - 16.30</p>
+			        <p><strong>Vineri:</strong> 08.00 - 14.00</p>
+							<p>
+			        <Icon href="https://twitter.com/MMFPSPV" target="_blank" title="twitter"><i className="fa fa-twitter"></i></Icon>
+							<Icon href="https://www.facebook.com/Ministerul.Muncii.Romania" target="_blank" title="twitter"><i className="fa fa-facebook"></i></Icon>
+			        <Icon href="https://www.youtube.com/channel/UC7Vj9DEdNhlkCl4-4r4VPPQ" target="_blank" title="twitter"><i className="fa fa-youtube"></i></Icon>
+							</p>
+				    </CardText>
+				</Card>
+
       </div>
     </Container>
   )
