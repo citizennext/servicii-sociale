@@ -34,7 +34,7 @@ const OverlayBar = styled.div`
   z-index: 1201;
   height: 54px;
   width:100vw;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.9);
 `;
 const CardResponsive = styled(Card)`
   width:320px;

@@ -9,7 +9,7 @@ const OverlayBar = styled.div`
   height: 34px;
   padding: 10px;
   width: 100vw;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.9);
   overflow: hidden;
 `;
 const Title = styled.div`
