@@ -69,6 +69,11 @@ a:hover{
   margin: .25em .5em 0 -1em;
   border-radius: 50%;
 }
+.paper-docs hr{
+	border: solid 2px #ffcc00;
+	width: 20px;
+	margin: 15px auto 20px;
+}
 .paper-info p{
 	margin-top: 15px;
 	text-align: left;
