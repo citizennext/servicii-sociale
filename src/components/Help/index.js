@@ -2,7 +2,7 @@ import React from 'react';
 import { browserHistory } from 'react-router';
 import FlatButton from 'material-ui/FlatButton';
 import NavigationArrowBack from 'material-ui/svg-icons/navigation/arrow-back';
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import {Card, CardHeader, CardText} from 'material-ui/Card';
 import styled from 'styled-components';
 
 const Container = styled.div`

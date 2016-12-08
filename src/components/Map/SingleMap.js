@@ -5,7 +5,7 @@ import Marker from "react-google-maps/lib/Marker";
 
 const SimpleMapExample = withGoogleMap(props => (
   <GoogleMap
-    defaultZoom={14}
+    defaultZoom={props.zoom}
     defaultCenter={{ lat: parseFloat(props.marker.lat), lng: parseFloat(props.marker.lng) }}>
     <Marker position={{ lat: parseFloat(props.marker.lat), lng: parseFloat(props.marker.lng) }} />
   </GoogleMap>
@@ -20,6 +20,7 @@ const SingleMap = (props) => (
       <div style={{ height: `100%` }} />
     }
     marker={props.marker}
+    zoom={props.zoom}
   />
 );
 export default SingleMap;

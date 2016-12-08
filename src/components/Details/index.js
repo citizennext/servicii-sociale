@@ -95,13 +95,15 @@ const PointsText = styled.div`
 
 `;
 const Cap = styled.div`
-  bottom: 30px;
   width: 78%;
-  margin: 0 auto;
+  margin: 80px auto 0 auto;
   text-align: center;
   text-transform: uppercase;
   color: #cccccc;
   font-weight: 18px;
+  @media(max-width: 767px) {
+    margin: 0 auto;
+  }
 `;
 const Organisation = styled.h2`
   color: #37b8d4;
@@ -151,7 +153,7 @@ const Details = (props) => {
         />
       </OverlayBar>
       <Map>
-        <SingleMap marker={marker}/>
+        <SingleMap marker={marker} zoom={14}/>
       </Map>
       <DetailsCard>
         <Over zDepth={2}>
