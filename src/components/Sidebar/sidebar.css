@@ -52,6 +52,17 @@ input.combo::placeholder {
 }
 .combo div{
   color:#ffffff!important;
+  font-size: 16px!important;
+}
+.combo span, .combo svg{
+  display: none!important;
+}
+.combo hr{
+  display: none;
+}
+.combo.select-field {
+  padding-bottom: 3px;
+  border-bottom: 2px solid #5dd3ec;
 }
 .filter input::placeholder {
   color: #ffffff!important;

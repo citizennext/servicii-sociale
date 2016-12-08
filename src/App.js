@@ -37,6 +37,7 @@ class App extends Component {
       isLoading: true,
       disclaimerOpen: false,
       zoom: 7,
+      selectedService: '',
       selectedFilters: {},
       servicii: [],
       districts:[],
@@ -68,7 +69,7 @@ class App extends Component {
       markers: [],
     }
     this.changeDistrict = this.setSelectedFilter.bind(this, 'jud')
-    this.changeService = this.setSelectedFilter.bind(this, 'cod')
+    this.changeService = this.setSelectedService.bind(this, 'cod')
     this.changeType = this.setSelectedFilter.bind(this, 'type')
     this.changeBeneficiary = this.setSelectedFilter.bind(this, 'categorie')
     this.changeCategory = this.setSelectedFilter.bind(this, 'category')
@@ -76,6 +77,10 @@ class App extends Component {
   setSelectedFilter(key, value) {
     const selectedFilters = R.assoc(key, value, this.state.selectedFilters)
     this.setState({ selectedFilters })
+  }
+  setSelectedService(key, value) {
+    const selectedFilters = R.assoc(key, value, this.state.selectedFilters)
+    this.setState({ selectedFilters, selectedService: value })
   }
   componentDidMount() {
     axios
@@ -147,6 +152,7 @@ class App extends Component {
                 type={this.state.type}
                 districts={this.state.districts}
                 selectedFilters={this.state.selectedFilters}
+                selectedService={this.state.selectedService}
                 beneficiaries={this.state.beneficiaries}
                 changeDistrict={this.changeDistrict}
                 changeService={this.changeService}

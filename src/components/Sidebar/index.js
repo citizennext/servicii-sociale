@@ -5,7 +5,8 @@ import Divider from 'material-ui/Divider'
 import List from 'material-ui/List'
 import makeSelectable from 'material-ui/List/makeSelectable'
 import IconButton from 'material-ui/IconButton'
-import AutoComplete from 'material-ui/AutoComplete'
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
 import ListItem from 'material-ui/List/ListItem'
 import ActionHelp from "material-ui/svg-icons/action/help"
 import ActionInfo from 'material-ui/svg-icons/action/info';
@@ -14,36 +15,37 @@ import LocalPostOffice from 'material-ui/svg-icons/maps/local-post-office';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
 import SocialNotifications from 'material-ui/svg-icons/social/notifications';
-import { ComboBox, Option } from 'belle';
+import { Select, Option } from 'belle';
 import belle from 'belle';
 import R from 'ramda'
 import './sidebar.css'
-belle.style.comboBox.style =
-  R.merge(belle.style.comboBox.style, {
+
+belle.style.select.style =
+  R.merge(belle.style.select.style, {
     color: '#000',
     borderBottom: '2px solid #5dd3ec',
     margin:'0 20px',
-    fontSize: '16px',
     width:214,
   })
-belle.style.comboBox.hoverStyle =
-  R.merge(belle.style.comboBox.hoverStyle, {
+belle.style.select.hoverStyle =
+  R.merge(belle.style.select.hoverStyle, {
     borderBottom: '2px solid #5dd3ec'
   })
-belle.style.comboBox.wrapperStyle =
-  R.merge(belle.style.comboBox.wrapperStyle, {
+belle.style.select.wrapperStyle =
+  R.merge(belle.style.select.wrapperStyle, {
     padding:'10px 0'
   })
-belle.style.comboBox.focusStyle =
-  R.merge(belle.style.comboBox.focusStyle, {
+belle.style.select.focusStyle =
+  R.merge(belle.style.select.focusStyle, {
     borderBottom: '2px solid #5dd3ec'
   })
-belle.style.comboBox.menuStyle =
-  R.merge(belle.style.comboBox.menuStyle, {
+belle.style.select.menuStyle =
+  R.merge(belle.style.select.menuStyle, {
     marginLeft: '20px',
     width: 220,
     zIndex: 1300
   })
+
 
 let SelectableList = makeSelectable(List);
 
@@ -81,10 +83,7 @@ function wrapState(ComposedComponent) {
 }
 
 SelectableList = wrapState(SelectableList)
-const serviciiConfigs = {
-  text: 'desc',
-  value: 'cod'
-}
+
 const styles = {
   navi: {display: 'flex', flexDirection: 'column', paddingTop: 0, paddingBottom: 0, backgroundColor: '#26b2d0',  overflow:'hidden', height:'calc(100% - 50px)'},
   close: {
@@ -108,7 +107,6 @@ const styles = {
 }
 
 const Sidebar = (props) => {
-  //const markersPerDistricts = props.markers.reduce((a,b) => { a[b.jud] = (a[b.jud] || 0) + 1; return a }, {})
   let filteredServices = props.selectedFilters.category
     ? props.servicii.filter(service => service.cat === props.selectedFilters.category)
     : [{desc: 'Alegeti cel putin un tip de serviciu', cod: '0'}]
@@ -138,11 +136,11 @@ const Sidebar = (props) => {
         </IconButton>
         <div className="filter">
           <div className="filter-child">
-            <ComboBox className="combo"
-              placeholder={ 'Județ' }
+            <Select className="combo"
               onUpdate={ (event) => { props.changeDistrict(event.value)} }
               menuStyle={{maxHeight: 250, overflow: 'scroll'}}
             >
+              <Option defaultValue value="">Județ</Option>
               {
                 props.districts.map((district, index) => (
                   <Option value={ district }
@@ -152,14 +150,12 @@ const Sidebar = (props) => {
                   </Option>
                 ))
               }
-            </ComboBox>
-            <ComboBox className="combo"
-              placeholder={ 'Tipul serviciului' }
-              onUpdate={ (event) => {
-                props.changeCategory(event.value)
-              } }
+            </Select>
+            <Select className="combo"
+              onUpdate={ (event) => { props.changeCategory(event.value) } }
               menuStyle={{maxHeight: 250, overflow: 'scroll'}}
             >
+              <Option defaultValue value="">Tipul serviciului</Option>
               {
                 props.categories.map((category, index) => (
                   <Option value={ category }
@@ -169,51 +165,47 @@ const Sidebar = (props) => {
                   </Option>
                 ))
               }
-            </ComboBox>
-
-            <AutoComplete
-              className="combo"
-              style={{borderColor: '#37b8d4!important', marginLeft: 20, width:'83%'}}
-              listStyle={{width: 'auto', color: '#37b8d4'}}
-              textFieldStyle={{width: '100%', color:'#ffffff!important'}}
-              hintText='Categoria de servicii'
-              filter={AutoComplete.caseInsensitiveFilter}
-              maxSearchResults={5}
-              dataSource={filteredServices}
-              dataSourceConfig={serviciiConfigs}
-              openOnFocus={true}
-              onNewRequest={(value) => props.changeService(value.cod)}
-            />
-            <ComboBox className="combo"
-              placeholder={ 'Forma organizare serviciu' }
-              onUpdate={ (event) => { props.changeType(event.identifier)} }
+            </Select>
+            <SelectField
+              className="combo select-field"
+              value={props.selectedService}
+              menuStyle={{width:220, height:'auto'}}
+              labelStyle={{color:'#ffffff', lineHeight:'1em', paddingRight:0, height:'auto'}}
+              style={{borderColor: '#37b8d4!important', marginLeft: 20, height:'auto', width:214, marginTop:20, marginBottom:10}}
+              onChange={(event, index, value) => props.changeService(value)}>
+              <MenuItem key="default" value='' primaryText="Categoria de servicii" />
+              {filteredServices.map((service, index) => (
+                <MenuItem key={index} value={service.cod} primaryText={service.desc} />
+              ))}
+            </SelectField>
+            <Select className="combo"
+              onUpdate={ (event) => { props.changeType(event.value)} }
               menuStyle={{maxHeight: 250, overflow: 'scroll'}}
             >
+              <Option defaultValue value="">Forma organizare serviciu</Option>
               {
                 props.type.map((type, index) => (
-                  <Option value={ type.name }
-                    identifier={ type.code }
+                  <Option value={ type.code }
                     key={ index }>
                     { type.name }
                   </Option>
                 ))
               }
-            </ComboBox>
-            <ComboBox className="combo"
-              placeholder={ 'Beneficiari' }
-              onUpdate={ (event) => { props.changeBeneficiary(event.identifier)} }
+            </Select>
+            <Select className="combo"
+              onUpdate={ (event) => { props.changeBeneficiary(event.value)} }
               menuStyle={{maxHeight: 250, overflow: 'scroll'}}
             >
+              <Option defaultValue value="">Beneficiari</Option>
               {
                 props.beneficiaries.map((beneficiary, index) => (
-                  <Option value={ beneficiary.name }
-                    identifier={ beneficiary.code }
+                  <Option value={ beneficiary.code }
                     key={ index }>
                     { beneficiary.name }
                   </Option>
                 ))
               }
-            </ComboBox>
+            </Select>
           </div>
         </div>
         <Divider style={{flexGrow:'1', backgroundColor:'#26b2d0'}}/>
