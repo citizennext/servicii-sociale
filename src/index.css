@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Roboto, sans-serif;
-
+	background: #f5f5f5;
 }
 input {
   background-color: transparent;
@@ -32,4 +32,67 @@ a {
 a:hover{
   color: #37b8d4;
   border-bottom: solid 3px #37b8d4;
+}
+.paper-docs {
+	margin-left: -20px;
+}
+.paper-docs a {
+	border-bottom: 0 !important;
+}
+.paper-docs div {
+	vertical-align: top;
+}
+.paper-docs p {
+	margin-top: 0;
+}
+.paper-docs h4{
+	font-size: 1.25em;
+	color: #37b8d4;
+	margin: 0;
+}
+.paper-docs ul{
+	color: #666;
+	text-align: left;
+	padding-left: 25px;
+}
+.paper-docs li{
+	margin-bottom: .5em;
+	list-style: none;
+}
+.paper-docs li:before{
+  background-color: #37b8d4;
+  content: "";
+  line-height: 1em;
+  width: .5em;
+  height: .5em;
+  float: left;
+  margin: .25em .5em 0 -1em;
+  border-radius: 50%;
+}
+.paper-info p{
+	margin-top: 15px;
+	text-align: left;
+}
+.paper-info div{
+	width: 45% !important;
+	min-height: 450px;
+}
+.paper-faq{
+	margin-right: 20px;
+}
+.faq-card{
+	margin-bottom: 20px;
+}
+.faq-title>div>span{
+	color: #37b8d4 !important;
+	font-size: 1.15em !important;
+}
+.faq-content{
+	font-size: 1em !important;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+	color: #666;
+}
+.faq-content p{
+	margin-top: 0;
 }

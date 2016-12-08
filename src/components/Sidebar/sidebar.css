@@ -35,15 +35,23 @@ button.meta, a.meta{
   color: white;
   margin: -10px auto;
 }
+.filter{
+	overflow-y: auto;
+}
 .filter label{
   color: #ffffff!important;
 }
-
 .filter button span{
   font-size: 13px!important
 }
 .filter hr{
   border:solid 1px #5dd3ec!important;
+}
+
+hr{
+	border: solid 2px #ffcc00;
+	width: 20px;
+	margin: 15px auto 20px;
 }
 
 input.combo::placeholder {
