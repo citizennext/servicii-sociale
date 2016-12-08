@@ -36,7 +36,7 @@ a:hover{
 .paper-docs {
 	margin-left: -20px;
 }
-.paper-docs a {
+.paper-docs a, .footer a {
 	border-bottom: 0 !important;
 }
 .paper-docs div {

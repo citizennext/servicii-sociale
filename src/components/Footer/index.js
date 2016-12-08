@@ -43,7 +43,7 @@ const FooterBox = styled.div`
   border-top: 1px solid rgba(0,0,0,.05);
 `;
 const Footer= (props) => (
-  <FooterBox>
+  <FooterBox className="footer">
 		<Logos>
 	    <a href="http://www.mmuncii.ro/" target="_blank"><Logo open={props.open} src={logo} alt='Ministerul Muncii' /></a>
 			<a href="http://ithub.gov.ro/" target="_blank"><GovITHUbLogo open={props.open} src={govithubLogo} alt='GovITHub' /></a>
