@@ -45,8 +45,8 @@ const FooterBox = styled.div`
 const Footer= (props) => (
   <FooterBox>
 		<Logos>
-	    <Logo open={props.open} src={logo} alt='Ministerul Muncii' />
-			<GovITHUbLogo open={props.open} src={govithubLogo} alt='GovITHub' />
+	    <a href="http://www.mmuncii.ro/" target="_blank"><Logo open={props.open} src={logo} alt='Ministerul Muncii' /></a>
+			<a href="http://ithub.gov.ro/" target="_blank"><GovITHUbLogo open={props.open} src={govithubLogo} alt='GovITHub' /></a>
 		</Logos>
     <SocialMedia>
       <Icon href="https://twitter.com/MMFPSPV" target="_blank" title="twitter"><i className="fa fa-twitter"></i></Icon>
