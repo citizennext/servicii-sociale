@@ -1,6 +1,6 @@
 .nume a {text-decoration: none!important;}
 .nume {
-  padding: 3em 1em;
+  padding: 1em 1em;
 }
 button.meta, a.meta{
   float:left;
@@ -71,6 +71,9 @@ input.combo::placeholder {
 .combo.select-field {
   padding-bottom: 3px;
   border-bottom: 2px solid #5dd3ec;
+}
+.opt-items > div > div{
+  padding: 0 10px!important;
 }
 .filter input::placeholder {
   color: #ffffff!important;

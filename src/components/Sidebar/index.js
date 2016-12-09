@@ -33,7 +33,7 @@ belle.style.select.hoverStyle =
   })
 belle.style.select.wrapperStyle =
   R.merge(belle.style.select.wrapperStyle, {
-    padding:'10px 0'
+    padding:'10px 0 5px 0'
   })
 belle.style.select.focusStyle =
   R.merge(belle.style.select.focusStyle, {
@@ -117,7 +117,6 @@ const Sidebar = (props) => {
       open={props.open}
     >
       <SelectableList {...props} defaultValue="" style={styles.navi}>
-
         <div className="nume">
           <Link to="/">
             <span className="harta">Harta</span>
@@ -167,15 +166,16 @@ const Sidebar = (props) => {
               }
             </Select>
             <SelectField
+              id="select-id"
               className="combo select-field"
               value={props.selectedService}
-              menuStyle={{width:220, height:'auto'}}
+              menuStyle={{width:220}}
               labelStyle={{color:'#ffffff', lineHeight:'1em', paddingRight:0, height:'auto'}}
-              style={{borderColor: '#37b8d4!important', marginLeft: 20, height:'auto', width:214, marginTop:20, marginBottom:10}}
+              style={{borderColor: '#37b8d4!important', marginLeft: 20, height:'auto', width:214, marginTop:20, marginBottom:5}}
               onChange={(event, index, value) => props.changeService(value)}>
-              <MenuItem key="default" value='' primaryText="Categoria de servicii" />
+              <MenuItem className="opt-items" key="default" value='' primaryText="Categoria de servicii" />
               {filteredServices.map((service, index) => (
-                <MenuItem key={index} value={service.cod} primaryText={service.desc} />
+                <MenuItem className="opt-items" key={index} value={service.cod} primaryText={service.desc} />
               ))}
             </SelectField>
             <Select className="combo"
