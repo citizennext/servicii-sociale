@@ -36,13 +36,14 @@ const StyledPaper = styled(Paper)`
 `;
 const Title = styled.h1`
   color: #37b8d4;
-  font-size: 120px;
+  font-size: 110px;
+  width: 100%;
   font-weight: 100;
   margin-top: 0px;
 `;
 const Pagina = styled.span`
   color: #ffcc00;
-  font-size: 28px;
+  font-size: 22px;
   font-weight: 400;
   border-bottom: solid 3px #ffcc00;
 `;
@@ -61,13 +62,13 @@ const NotFound = (props) => {
       <div style={{minHeight: '100%', marginTop: '54px', maxWidth: '100vw'}}>
         <StyledPaper>
           <Title>Hopa!</Title>
-          <p>Pagina <Pagina>{props.location.pathname}</Pagina> nu e de pe situl nostru. Poate la alt minister.</p>
+          <p>Pagina <Pagina>{props.location.pathname}</Pagina> nu se gaseste pe situl nostru. Poate la alt minister.</p>
           <p>La noi ai putea eventual cauta:</p>
-          <p><Link path="/acreditare">Pagina cu informatii despre Acreditare</Link></p>
-          <p><Link path="/contact">Pagina de contact</Link></p>
-          <p><Link path="/statistici">Pagina cu statistici</Link></p>
-          <p><Link path="/info">Pagina de informatii generale</Link></p>
-          <p><Link path="/ajuto">Pagina de intrebari frecvente</Link></p>
+          <p><Link to="/acreditare">Pagina cu informatii despre acreditare</Link></p>
+          <p><Link to="/contact">Pagina de contact</Link></p>
+          <p><Link to="/statistici">Pagina cu statistici</Link></p>
+          <p><Link to="/info">Pagina de informatii generale</Link></p>
+          <p><Link to="/ajuto">Pagina de intrebari frecvente</Link></p>
         </StyledPaper>
       </div>
     </Container>
