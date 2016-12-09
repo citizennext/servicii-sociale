@@ -28,7 +28,7 @@ const Icon = styled.a`
 `;
 const SocialMedia = styled.div`
 @media(max-width: 767px) {
-  width: 10vw;
+  width: 16vw;
 }
 `;
 const FooterBox = styled.div`

@@ -101,3 +101,11 @@ a:hover{
 .faq-content p{
 	margin-top: 0;
 }
+@media screen and (max-width: 480px) {
+	.paper-info div{
+		width: 94% !important;
+	}
+	.footer img{
+		height: 40px !important;
+	}
+}
