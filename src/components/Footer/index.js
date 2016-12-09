@@ -27,9 +27,9 @@ const Icon = styled.a`
   }
 `;
 const SocialMedia = styled.div`
-@media(max-width: 767px) {
-  width: 16vw;
-}
+  @media(max-width: 767px) {
+    width: 20vw;
+  }
 `;
 const FooterBox = styled.div`
   display: flex;
@@ -41,6 +41,10 @@ const FooterBox = styled.div`
   padding: 0 10vw;
   background-color: #eee;
   border-top: 1px solid rgba(0,0,0,.05);
+  @media(max-width: 767px) {
+    padding: 0;
+    width: 100vw;
+  }
 `;
 const Footer= (props) => (
   <FooterBox className="footer">
