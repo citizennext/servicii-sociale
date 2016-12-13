@@ -133,7 +133,8 @@ const styles = {
   }
 }
 const phoneNumbers = (number) => {
-  return `0${number}`
+  const n = Array.from(number)
+  return `0${n[0]}${n[1]}${n[2]}.${n[3]}${n[4]}${n[5]}.${n[6]}${n[7]}${n[8]}`
 }
 const Details = (props) => {
   const marker = props.markers
@@ -160,7 +161,7 @@ const Details = (props) => {
           <Third gray>
             <Points><i style={styles.icon} className="fa fa-map-marker"></i><PointsText>{marker.adresa}, {marker.oras}, {marker.jud}</PointsText></Points>
             <Points><i style={styles.icon} className="fa fa-phone"></i><PointsText>
-              {marker.phone ? phoneNumbers(marker.phone) : null}</PointsText></Points>
+              {marker.phone.length >= 1 ? marker.phone.map(phone => `${phoneNumbers(phone)} `) : 'Nu avem un numar de telefon in baza de date'}</PointsText></Points>
             <Points email><i style={styles.icon} className="fa fa-envelope"></i><PointsText email><a href={`mailto:${marker.email}`} style={{color: '#ffffff', textDecoration: 'none'}}>{marker.email}</a></PointsText></Points>
             <Cap><span style={{fontSize:72, fontWeight: 700, clear:'both', display:'block', color: '#ffffff'}}>{marker.capacitate ? marker.capacitate : "?"}</span> capacitate</Cap>
           </Third>
