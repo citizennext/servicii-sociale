@@ -89,7 +89,7 @@ const Help = (props) => {
 							className="faq-title"
 				    />
 				    <CardText expandable={true} className="faq-content">
-						<p>Utilizatorii pot contribui la acuratețea datelor prezentate pe www.harta-furnizori.mmuncii.ro și pot trimite observații și propuneri de îmbunătățire a platformei la adresa de email acreditare@mmuncii.gov.ro.</p>
+						<p>Utilizatorii pot contribui la acuratețea datelor prezentate pe www.harta-furnizori.mmuncii.ro și pot trimite observații și propuneri de îmbunătățire a platformei la adresa de email <a href="mailto:acreditare@mmuncii.ro" title="Email acreditare@mmuncii.ro">acreditare@mmuncii.ro</a>.</p>
 				    </CardText>
 				</Card>
       </div>

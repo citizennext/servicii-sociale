@@ -76,11 +76,11 @@ class App extends Component {
   }
   setSelectedFilter(key, value) {
     const selectedFilters = R.assoc(key, value, this.state.selectedFilters)
-    this.setState({ selectedFilters })
+    this.setState({ selectedFilters, zoom: 8 })
   }
   setSelectedService(key, value) {
     const selectedFilters = R.assoc(key, value, this.state.selectedFilters)
-    this.setState({ selectedFilters, selectedService: value })
+    this.setState({ selectedFilters, selectedService: value, zoom: 8 })
   }
   componentDidMount() {
     axios
@@ -170,7 +170,7 @@ class App extends Component {
                 open={this.state.disclaimerOpen}
                 onRequestClose={this.handleDisclaimer}
               >
-                Harta serviciilor sociale licențiate este în versiune Beta. În această fază, softul este testat în practică de către utilizatori, iar apoi vor fi făcute modificări pentru a înlătura eventualele erori. Datele prezentate pe platformă sunt la nivelul lunii septembrie a anului 2016 și sunt în curs de actualizare. Utilizatorii pot contribui la acuratețea datelor prin trimiterea de observații și propuneri de îmbunătățire, la adresa de email <a href="mailto:acreditare@mmuncii.gov.ro">acreditare@mmuncii.gov.ro</a>.
+                Harta serviciilor sociale licențiate este în versiune Beta. În această fază, softul este testat în practică de către utilizatori, iar apoi vor fi făcute modificări pentru a înlătura eventualele erori. Datele prezentate pe platformă sunt la nivelul lunii septembrie a anului 2016 și sunt în curs de actualizare. Utilizatorii pot contribui la acuratețea datelor prin trimiterea de observații și propuneri de îmbunătățire, la adresa de email <a href="mailto:acreditare@mmuncii.ro">acreditare@mmuncii.ro</a>.
                 <IconButton onTouchTap={this.handleDisclaimer}
                   style={{position:'absolute', top: 0, right:0}}>
                   <NavigationClose />

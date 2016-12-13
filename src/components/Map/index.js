@@ -24,11 +24,19 @@ const MarkerClustererGoogleMap = withGoogleMap(props => {
     ? props.markers.length
     : filterData(props.markers, props.selectedFilters).length
 
+  const setLat = filterData(props.markers, props.selectedFilters).map(marker => marker.lat)
+  const setLng = filterData(props.markers, props.selectedFilters).map(marker => marker.lng)
+  const latMed = R.sum(setLat) / setLat.length
+  const lngMed = R.sum(setLng) / setLng.length
+  const center = R.isEmpty(props.selectedFilters)
+    ? { lat: 46.2, lng: 24 }
+    : { lat: latMed ? latMed : 46.2, lng: lngMed ? lngMed : 24 }
+
   return (
     <div>
     <GoogleMap
-      defaultZoom={props.zoom}
-      defaultCenter={{ lat: 46.2, lng: 24 }}
+      zoom={props.zoom}
+      center={center}
       onMarkerClick={props.onMarkerClick}>
       { R.isEmpty(props.selectedFilters)
         ? <MarkerClusterer

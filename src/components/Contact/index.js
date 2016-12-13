@@ -116,7 +116,7 @@ const Contact = (props) => {
       "oras": "Bucureşti",
       "cod": "cod poștal 010026",
       "web": "http://www.mmuncii.gov.ro",
-      "email": "acreditare@mmuncii.gov.ro",
+      "email": "acreditare@mmuncii.ro",
       "phone": "021.315.85.56",
       "lat": "44.439193",
       "lng": "26.098499"
