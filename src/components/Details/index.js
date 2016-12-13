@@ -138,7 +138,7 @@ const phoneNumbers = (number) => {
 }
 const Details = (props) => {
   const marker = props.markers
-    .find(marker => marker.id === parseFloat(props.params.id))
+    .find(marker => marker.slug === props.params.slug)
   const services = (marker.cod !== "")
     ? props.servicii.find(service => service.cod === marker.cod)
     : null
@@ -160,8 +160,13 @@ const Details = (props) => {
         <Over zDepth={2}>
           <Third gray>
             <Points><i style={styles.icon} className="fa fa-map-marker"></i><PointsText>{marker.adresa}, {marker.oras}, {marker.jud}</PointsText></Points>
-            <Points><i style={styles.icon} className="fa fa-phone"></i><PointsText>
-              {marker.phone.length >= 1 ? marker.phone.map(phone => `${phoneNumbers(phone)} `) : 'Nu avem un numar de telefon in baza de date'}</PointsText></Points>
+            <Points><i style={styles.icon} className="fa fa-phone"></i>
+              <PointsText>
+              {marker.phone.length >= 1
+                ? marker.phone.map(phone => `${phoneNumbers(phone)}, `)
+                : 'Nu avem un numar de telefon in baza de date'}
+              </PointsText>
+            </Points>
             <Points email><i style={styles.icon} className="fa fa-envelope"></i><PointsText email><a href={`mailto:${marker.email}`} style={{color: '#ffffff', textDecoration: 'none'}}>{marker.email}</a></PointsText></Points>
             <Cap><span style={{fontSize:72, fontWeight: 700, clear:'both', display:'block', color: '#ffffff'}}>{marker.capacitate ? marker.capacitate : "?"}</span> capacitate</Cap>
           </Third>

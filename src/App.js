@@ -8,7 +8,8 @@ import Dialog from 'material-ui/Dialog'
 import IconButton from 'material-ui/IconButton'
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import { lightBlue900, white } from 'material-ui/styles/colors'
+import { lightBlue900, white } from 'material-ui/styles/colors';
+import getSlug from 'speakingurl';
 const muiTheme = getMuiTheme({
   palette: {
     accent1Color: lightBlue900,
@@ -91,10 +92,11 @@ class App extends Component {
         const servicesMap = data.data.ss.map(service => service.cat)
         const categories = servicesMap.filter((v,i) => servicesMap.indexOf(v) === i)
         const newMarkers = data.data.providers.map(marker => {
-          const categs = marker.cod
+          const category = marker.cod
             ? data.data.ss.find(service => service.cod === marker.cod).cat
             : null
-          return Object.assign(marker, {category: categs})
+          const slug = getSlug(marker.name)
+          return Object.assign(marker, {category, slug})
         }
         )
         this.setState({
@@ -110,7 +112,7 @@ class App extends Component {
 
 
   onMarkerClick = (marker) => {
-    this.props.route.history.push(`/serviciu/${marker.id}`);
+    this.props.route.history.push(`/serviciu/${marker.slug}`);
     this.setState({ open: false })
   }
 

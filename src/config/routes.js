@@ -19,7 +19,7 @@ const Routes = (props) => (
     <Route path="/" {...props} component={App}>
       <IndexRoute component={Map}/>
       <Route path="statistici" component={About} />
-      <Route path="serviciu/:id" component={Details} />
+      <Route path="serviciu/:slug" component={Details} />
       <Route path="ajutor" component={Help} />
       <Route path="contact" component={Contact} />
       <Route path="acreditare" component={Certification} />
