@@ -110,7 +110,8 @@ class App extends Component {
       .catch(error => console.log(error))
   }
 
-
+  setZoom = (zoom) => this.setState({zoom});
+  
   onMarkerClick = (marker) => {
     this.props.route.history.push(`/serviciu/${marker.slug}`);
     this.setState({ open: false })
@@ -126,7 +127,7 @@ class App extends Component {
     let children = null;
       children = React.cloneElement(this.props.children, {
         ...this.state,
-        onMarkerClick: this.onMarkerClick.bind(this), handleBack: this.handleBack
+        onMarkerClick: this.onMarkerClick.bind(this), handleBack: this.handleBack, setZoom: this.setZoom
       })
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
@@ -162,6 +163,7 @@ class App extends Component {
                 changeBeneficiary={this.changeBeneficiary}
                 changeType={this.changeType}
                 handleDisclaimer={this.handleDisclaimer}
+                onZoomChanged={this.onZoomChanged}
               />
               <div>
                 {children}

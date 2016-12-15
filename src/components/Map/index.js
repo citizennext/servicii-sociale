@@ -5,7 +5,6 @@ import Marker from "react-google-maps/lib/Marker";
 import MarkerClusterer from 'react-google-maps/lib/addons/MarkerClusterer';
 import R from 'ramda';
 import Overlay from './overlay';
-
 const MarkerClustererGoogleMap = withGoogleMap(props => {
   const filterData = (markers, selectedFilters) => {
     const activeFilterKeys = R.keys(R.filter(R.identity, R.dissoc('categorie', selectedFilters)))
@@ -36,7 +35,9 @@ const MarkerClustererGoogleMap = withGoogleMap(props => {
     <div>
     <GoogleMap
       zoom={props.zoom}
+      ref={props.onMapMounted}
       center={center}
+      onZoomChanged={props.onZoomChanged}
       onMarkerClick={props.onMarkerClick}>
       { R.isEmpty(props.selectedFilters)
         ? <MarkerClusterer
@@ -68,23 +69,41 @@ const MarkerClustererGoogleMap = withGoogleMap(props => {
   )}
 )
 
-const Map = (props) => {
-  return (
-    <div>
-      <MarkerClustererGoogleMap
-        zoom={props.zoom}
-        selectedFilters={props.selectedFilters}
-        containerElement={
-          <div style={{ marginTop: 54, height: 'calc(100vh - 129px)', width: '100vw' }} />
-        }
-        mapElement={
-          <div style={{ height: 'calc(100vh - 129px)', width: '100vw' }} />
-        }
-        markers={props.markers}
-        open={props.open}
-        onMarkerClick={props.onMarkerClick}
-      />
-    </div>
-  )
-};
+class Map extends React.Component {
+  constructor(props){
+    super(props)
+    this.handleMapMounted = this.handleMapMounted.bind(this);
+    this.handleZoomChanged = this.handleZoomChanged.bind(this);
+  }
+  handleMapMounted(map) {
+    this._map = map;
+  }
+  handleZoomChanged() {
+    const nextZoom = this._map.getZoom();
+    if (nextZoom !== this.props.zoom) {
+      this.props.setZoom(nextZoom)
+    }
+  }
+  render() {
+    return (
+      <div>
+        <MarkerClustererGoogleMap
+          zoom={this.props.zoom}
+          selectedFilters={this.props.selectedFilters}
+          containerElement={
+            <div style={{ marginTop: 54, height: 'calc(100vh - 129px)', width: '100vw' }} />
+          }
+          mapElement={
+            <div style={{ height: 'calc(100vh - 129px)', width: '100vw' }} />
+          }
+          markers={this.props.markers}
+          open={this.props.open}
+          onMapMounted={this.handleMapMounted}
+          onZoomChanged={this.handleZoomChanged}
+          onMarkerClick={this.props.onMarkerClick}
+        />
+      </div>
+    )
+  }
+}
 export default Map;
