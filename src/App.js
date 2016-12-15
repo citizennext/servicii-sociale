@@ -3,7 +3,6 @@ import R from 'ramda'
 import Sidebar from './components/Sidebar'
 import Footer from './components/Footer'
 import axios from 'axios'
-require('array.prototype.find').shim();
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Dialog from 'material-ui/Dialog'
 import IconButton from 'material-ui/IconButton'
