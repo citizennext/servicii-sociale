@@ -3,6 +3,7 @@ import R from 'ramda'
 import Sidebar from './components/Sidebar'
 import Footer from './components/Footer'
 import axios from 'axios'
+require('array.prototype.find');
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Dialog from 'material-ui/Dialog'
 import IconButton from 'material-ui/IconButton'
@@ -111,7 +112,7 @@ class App extends Component {
   }
 
   setZoom = (zoom) => this.setState({zoom});
-  
+
   onMarkerClick = (marker) => {
     this.props.route.history.push(`/serviciu/${marker.slug}`);
     this.setState({ open: false })
