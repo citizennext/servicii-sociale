@@ -95,7 +95,7 @@ class App extends Component {
           const category = marker.cod
             ? data.data.ss.find(service => service.cod === marker.cod).cat
             : null
-          const slug = getSlug(marker.name)
+          const slug = `${getSlug(marker.name)}-${marker.id}`
           return Object.assign(marker, {category, slug})
         }
         )
