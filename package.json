@@ -5,6 +5,7 @@
   "homepage": "http://harta-furnizori.mmuncii.ro",
   "devDependencies": {
     "babel-plugin-transform-flow-strip-types": "^6.18.0",
+    "babel-polyfill": "^6.20.0",
     "eslint": "^3.8.1",
     "eslint-plugin-react": "^6.4.1",
     "react-scripts": "^0.8.4"

@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import React from 'react';
 import SingleMap from '../Map/SingleMap';
 import Paper from 'material-ui/Paper';
