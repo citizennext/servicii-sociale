@@ -8,7 +8,8 @@
     "babel-polyfill": "^6.20.0",
     "eslint": "^3.8.1",
     "eslint-plugin-react": "^6.4.1",
-    "react-scripts": "^0.8.4"
+    "react-scripts": "^0.8.4",
+    "sw-precache": "^4.3.0"
   },
   "dependencies": {
     "axios": "^0.15.2",
@@ -27,7 +28,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && sw-precache --config=sw-precache-config.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
