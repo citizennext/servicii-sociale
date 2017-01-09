@@ -64,6 +64,7 @@ input.combo::placeholder {
 }
 .combo span, .combo svg{
   display: none!important;
+  content:none!important;
 }
 .combo hr{
   display: none;

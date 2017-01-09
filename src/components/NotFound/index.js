@@ -1,5 +1,5 @@
 import React from 'react';
-import { browserHistory, Link } from 'react-router';
+import { Link } from 'react-router';
 import FlatButton from 'material-ui/FlatButton';
 import NavigationArrowBack from 'material-ui/svg-icons/navigation/arrow-back';
 import Paper from 'material-ui/Paper';
@@ -54,7 +54,7 @@ const NotFound = (props) => {
         <FlatButton
           label="Inapoi"
           primary={true}
-          onTouchTap={browserHistory.goBack}
+          onTouchTap={props.pageBack}
           style={props.open ? {marginLeft:322,marginTop:8,color:'#333333'} : {marginLeft:64,marginTop:8, color:'#333333'}}
           icon={<NavigationArrowBack color='#333333' />}
         />

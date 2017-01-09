@@ -15,8 +15,7 @@ import LocalPostOffice from 'material-ui/svg-icons/maps/local-post-office';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
 import SocialNotifications from 'material-ui/svg-icons/social/notifications';
-import { Select, Option } from 'belle';
-import belle from 'belle';
+import belle, { Select, Option } from 'belle';
 import R from 'ramda'
 import './sidebar.css'
 
@@ -45,7 +44,10 @@ belle.style.select.menuStyle =
     width: 220,
     zIndex: 1300
   })
-
+belle.style.select.caretToOpenStyle =
+  R.omit(['content'], belle.style.select.caretToOpenStyle)
+belle.style.select.caretToCloseStyle =
+  R.omit(['content'], belle.style.select.caretToCloseStyle)
 
 let SelectableList = makeSelectable(List);
 
@@ -169,7 +171,7 @@ const Sidebar = (props) => {
               id="select-id"
               className="combo select-field"
               value={props.selectedService}
-              menuStyle={{width:220}}
+              autoWidth={true}
               labelStyle={{color:'#ffffff', lineHeight:'1em', paddingRight:0, height:'auto'}}
               style={{borderColor: '#37b8d4!important', marginLeft: 20, height:'auto', width:214, marginTop:20, marginBottom:5}}
               onChange={(event, index, value) => props.changeService(value)}>

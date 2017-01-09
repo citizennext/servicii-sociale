@@ -4,6 +4,7 @@ import Paper from 'material-ui/Paper';
 import FlatButton from 'material-ui/FlatButton';
 import NavigationArrowBack from 'material-ui/svg-icons/navigation/arrow-back';
 import styled from 'styled-components';
+import R from 'ramda'
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -137,10 +138,10 @@ const phoneNumbers = (number) => {
   return `0${n[0]}${n[1]}${n[2]}.${n[3]}${n[4]}${n[5]}.${n[6]}${n[7]}${n[8]}`
 }
 const Details = (props) => {
-  const marker = props.markers
-    .find(marker => marker.slug === props.params.slug)
+  const marker =
+    R.find(marker => marker.slug === props.params.slug)(props.markers)
   const services = (marker.cod !== "")
-    ? props.servicii.find(service => service.cod === marker.cod)
+    ? R.find(service => service.cod === marker.cod)(props.servicii)
     : null
   return (
     <Container>

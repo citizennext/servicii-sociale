@@ -60,7 +60,7 @@ const Certification = (props) => {
         <FlatButton
           label="Inapoi"
           primary={true}
-          onTouchTap={props.handleBack}
+          onTouchTap={props.pageBack}
           style={props.open ? {marginLeft:322,marginTop:8,color:'#333333'} : {marginLeft:64,marginTop:8, color:'#333333'}}
           icon={<NavigationArrowBack color='#333333' />}
         />
