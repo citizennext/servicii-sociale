@@ -2,7 +2,7 @@
   "name": "servicii",
   "version": "0.2.0",
   "private": true,
-  "homepage": "http://harta-furnizori.mmuncii.ro",
+  "homepage": "https://harta-furnizori.mmuncii.ro",
   "devDependencies": {
     "babel-plugin-transform-flow-strip-types": "^6.18.0",
     "babel-polyfill": "^6.20.0",
