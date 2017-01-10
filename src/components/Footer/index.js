@@ -49,13 +49,13 @@ const FooterBox = styled.div`
 const Footer= (props) => (
   <FooterBox className="footer">
 		<Logos>
-	    <a href="http://www.mmuncii.ro/" target="_blank"><Logo open={props.open} src={logo} alt='Ministerul Muncii' /></a>
-			<a href="http://ithub.gov.ro/" target="_blank"><GovITHUbLogo open={props.open} src={govithubLogo} alt='GovITHub' /></a>
+	    <a href="http://www.mmuncii.ro/" target="_blank" rel="noopener"><Logo open={props.open} src={logo} alt='Ministerul Muncii' /></a>
+			<a href="http://ithub.gov.ro/" target="_blank" rel="noopener"><GovITHUbLogo open={props.open} src={govithubLogo} alt='GovITHub' /></a>
 		</Logos>
     <SocialMedia>
-      <Icon href="https://twitter.com/MMFPSPV" target="_blank" title="twitter"><i className="fa fa-twitter"></i></Icon>
-      <Icon href="https://www.facebook.com/Ministerul.Muncii.Romania" target="_blank" title="facebook"><i className="fa fa-facebook"></i></Icon>
-      <Icon href="https://github.com/gov-ithub/servicii-sociale" target="_blank" title="github"><i className="fa fa-github"></i></Icon>
+      <Icon href="https://twitter.com/MMFPSPV" target="_blank" rel="noopener" title="twitter"><i className="fa fa-twitter"></i></Icon>
+      <Icon href="https://www.facebook.com/Ministerul.Muncii.Romania" target="_blank" rel="noopener" title="facebook"><i className="fa fa-facebook"></i></Icon>
+      <Icon href="https://github.com/gov-ithub/servicii-sociale" target="_blank" rel="noopener" title="github"><i className="fa fa-github"></i></Icon>
     </SocialMedia>
   </FooterBox>
 )

@@ -150,9 +150,9 @@ const Contact = (props) => {
             <Organisation>Programul de funcționare al instituței:</Organisation>
             <p><strong>Luni - Joi:</strong> 08.00 - 16.30</p>
             <p><strong>Vineri:</strong> 08.00 - 14.00</p>
-            <Icon href="https://www.facebook.com/Ministerul.Muncii.Romania" target="_blank" title="twitter"><i className="fa fa-facebook"></i></Icon>
-            <Icon href="https://twitter.com/MMFPSPV" target="_blank" title="twitter"><i className="fa fa-twitter"></i></Icon>
-            <Icon href="https://www.youtube.com/channel/UC7Vj9DEdNhlkCl4-4r4VPPQ" target="_blank" title="twitter"><i className="fa fa-youtube"></i></Icon>
+            <Icon href="https://www.facebook.com/Ministerul.Muncii.Romania" target="_blank" rel="noopener" title="twitter"><i className="fa fa-facebook"></i></Icon>
+            <Icon href="https://twitter.com/MMFPSPV" target="_blank" rel="noopener" title="twitter"><i className="fa fa-twitter"></i></Icon>
+            <Icon href="https://www.youtube.com/channel/UC7Vj9DEdNhlkCl4-4r4VPPQ" target="_blank" rel="noopener" title="twitter"><i className="fa fa-youtube"></i></Icon>
           </TwoThirds>
         </Over>
       </DetailsCard>

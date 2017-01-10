@@ -70,19 +70,19 @@ const Certification = (props) => {
         <p>Ministerul Muncii, Familiei, Protecției Sociale și Persoanelor Vârstnice împreună cu autoritățile din subordine, Autoritatea Națională pentru Protecția Drepturilor Copilului și Adopție (ANPDCA), Agenția Națională pentru Egalitate de Șanse între Femei și Bărbați (ANES) și Autoritatea Națională pentru Persoanele cu Dizabilități (ANPD) acordă licențe de funcționare sau provizorii pentru serviciile sociale din domeniul propriu de activitate. </p>
         <h3>Cadrul procedural unitar</h3>
 				<div className="paper-docs">
-				<a href="http://www.mmuncii.ro/j33/images/Documente/Familie/DGAS/Acreditare/L197_2012.pdf" target="_blank" >
+				<a href="http://www.mmuncii.ro/j33/images/Documente/Familie/DGAS/Acreditare/L197_2012.pdf" target="_blank" rel="noopener" >
 					<Paper style={paperStyle} zDepth={1}>
 							<IconDescription style={iconStyle} color={cyan500} />
 							<p>Legea nr. 197/2012 privind asigurarea calității în domeniul serviciilor sociale</p>
 					</Paper>
 				</a>
-				<a href="http://www.mmuncii.ro/j33/images/Documente/Familie/DGAS/Acreditare/HG_118_2014actual2016.pdf" target="_blank">
+				<a href="http://www.mmuncii.ro/j33/images/Documente/Familie/DGAS/Acreditare/HG_118_2014actual2016.pdf" target="_blank" rel="noopener">
 					<Paper style={paperStyle} zDepth={1}>
 							<IconClass style={iconStyle} color={cyan500} />
 							<p>HG nr. 118/2014</p>
 					</Paper>
 				</a>
-				<a href="http://www.mmuncii.ro/j33/images/Documente/Familie/DGAS/Acreditare/HG_584_2016.pdf" target="_blank">
+				<a href="http://www.mmuncii.ro/j33/images/Documente/Familie/DGAS/Acreditare/HG_584_2016.pdf" target="_blank" rel="noopener">
 					<Paper style={paperStyle} zDepth={1}>
 							<IconClass style={iconStyle} color={cyan500} />
 							<p>HG nr. 584/2016</p>
@@ -94,7 +94,7 @@ const Certification = (props) => {
         <h3>Ministerul Muncii este punctul unic de contact pentru depunerea cererilor</h3>
         <p>Furnizorii de servicii sociale (publici sau privați) depun cererile la Ministerul Muncii, ca punct unic de contact, urmând ca cele 3 instituții subordonate să acorde licențele de funcționare sau provizorii astfel: ANPDCA pentru serviciile sociale acordate copiilor, ANPD pentru cele destinate persoanelor cu dizabilități, ANES în cazul victimelor violenței domestice, iar Ministerul Muncii pentru serviciile sociale acordate persoanelor vârstnice și altor categorii de beneficiari.</p>
 
-        <p>Întregul <a href="http://www.mmuncii.ro/j33/index.php/ro/2014-domenii/familie/politici-familiale-incluziune-si-asistenta-sociala/3222" target="_blank">cadru normativ legat de procedura de acreditare</a> este disponibil pe site-ul Ministerului Muncii.</p>
+        <p>Întregul <a href="http://www.mmuncii.ro/j33/index.php/ro/2014-domenii/familie/politici-familiale-incluziune-si-asistenta-sociala/3222" target="_blank" rel="noopener">cadru normativ legat de procedura de acreditare</a> este disponibil pe site-ul Ministerului Muncii.</p>
 
 
 				<h3>Procesul de acreditare</h3>
