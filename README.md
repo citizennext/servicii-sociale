@@ -36,17 +36,16 @@ Pentru a folosi Flow este necesară instalarea definițiilor pentru librăriile 
 După ce se instalează toate definițiile, typechecker-ul Flow se poate rula cu `npm run-script flow` (prima rulare este mai înceată, următoarele sunt instante).
 
 ## Teste
-Rulează `npm test`. `npm test` rulează doar testele nou introduse, de la ultimul commit, by default, însă vă permite rularea tuturor testelor (you'll know what to do when you see it).
+Rulează `yarn test`. `yarn test` rulează doar testele nou introduse, de la ultimul commit, by default, însă vă permite rularea tuturor testelor (you'll know what to do when you see it).
 
 Ca și framework folosim [Jest](https://facebook.github.io/jest/). [Documentație mai completă >>](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#running-tests)
 
 ## Development
-Pentru Auth0 aveti nevoie de cont pe Auth0 și un Single Page client pentru a testa/dezvolta local. Apoi modificati .env_template in .env cu credentialele voastre. E nevoie sa adaugati in Allowed Callback URLs, Allowed Logout URLs http://localhost:3000/admin, http://localhost:3000, http://localhost:3001/home. la Allowed Origins (CORS) bagati http://localhost:3000  
-- `npm run json-server`: adauga in folderul `/api` endpointurile de care ai nevoie. json server le va rula de acolo. [documentatie](https://github.com/typicode/json-server)
-- `npm run flow`: Rulează typechecker-ul Flow
-- `npm start`: Servește aplicația pe portul 3000
-- `npm run build`: Pregătește aplicația pentru deployment (include minification, bundling, etc)
-- `npm run eject`: Elimină dependența de [create-react-app](https://github.com/facebookincubator/create-react-app/). Poate va fi necesar, dar până atunci please don't touch.
+
+- `yarn flow`: Rulează typechecker-ul Flow
+- `yarn start`: Servește aplicația pe portul 3000
+- `yarn build`: Pregătește aplicația pentru deployment (include minification, bundling, etc)
+- `yarn eject`: Elimină dependența de [create-react-app](https://github.com/facebookincubator/create-react-app/). Poate va fi necesar, dar până atunci please don't touch.
 
 ## Pull Request cheat-sheet
 - Ai un summary complet? Trebuie să fie clar: ce schimbare aduce diff-ul, cum ai testat, și în cazuri unde se fac schimbări majore, dacă e cazul, avem un revert plan?
@@ -59,6 +58,6 @@ Dacă răspunsul e "da" pentru toate 3, procesul de code review ar trebui să fi
 Preferă pull request-uri peste issues unde e posibil, pull request-urile sunt primite cu brațele deschise oricând.
 
 ## Cum poti intra in contact cu echipa?
-Prin email catre cezar.neaga@ithub.gov.ro sau mai rapid pe [Slack](https://govithub.slack.com/messages/socent/details/)
+Prin email catre cezar.neaga@ithub.gov.ro sau mai rapid pe [Slack](https://govithub.slack.com/messages/servicii-sociale/details/)
 
 **Made with :heart: by [GovITHub](http://ithub.gov.ro)**
