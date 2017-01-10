@@ -36,7 +36,8 @@ button.meta, a.meta{
   margin: -10px auto;
 }
 .filter{
-
+  overflow-y: scroll;
+  min-height: 430px;
 }
 .filter label{
   color: #ffffff!important;
@@ -62,21 +63,9 @@ input.combo::placeholder {
   color:#ffffff!important;
   font-size: 16px!important;
 }
-.combo span, .combo svg{
+.combo span{
   display: none!important;
-  content:none!important;
 }
 .combo hr{
   display: none;
-}
-.combo.select-field {
-  padding-bottom: 3px;
-  border-bottom: 2px solid #5dd3ec;
-}
-.opt-items > div > div{
-  padding: 0 10px!important;
-}
-.filter input::placeholder {
-  color: #ffffff!important;
-  font-size: 16px;
 }

@@ -4,9 +4,8 @@ import Drawer from 'material-ui/Drawer'
 import Divider from 'material-ui/Divider'
 import List from 'material-ui/List'
 import makeSelectable from 'material-ui/List/makeSelectable'
-import IconButton from 'material-ui/IconButton'
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
+import IconButton from 'material-ui/IconButton';
+import RaisedButton from 'material-ui/RaisedButton';
 import ListItem from 'material-ui/List/ListItem'
 import ActionHelp from "material-ui/svg-icons/action/help"
 import ActionInfo from 'material-ui/svg-icons/action/info';
@@ -87,7 +86,7 @@ function wrapState(ComposedComponent) {
 SelectableList = wrapState(SelectableList)
 
 const styles = {
-  navi: {display: 'flex', flexDirection: 'column', paddingTop: 0, paddingBottom: 0, backgroundColor: '#26b2d0',  overflow:'hidden', height:'calc(100% - 50px)'},
+  navi: {display: 'flex', flexDirection: 'column', paddingTop: 0, paddingBottom: 0, backgroundColor: '#26b2d0',  overflow:'hidden', height:'calc(100% - 70px)'},
   close: {
     position: 'absolute',
     zIndex: 1111,
@@ -112,7 +111,6 @@ const Sidebar = (props) => {
   let filteredServices = props.selectedFilters.category
     ? props.servicii.filter(service => service.cat === props.selectedFilters.category)
     : [{desc: 'Alegeti cel putin un tip de serviciu', cod: '0'}]
-
   return (
     <Drawer
       containerStyle={{height: '100vh', top: 0, overflow:'none', backgroundColor: '#26b2d0'}}
@@ -126,7 +124,6 @@ const Sidebar = (props) => {
             <span className="autorizate">Licențiate</span>
           </Link>
         </div>
-
         <IconButton
           onTouchTap={props.handleClose}
           style={props.open ? styles.close : styles.open}>
@@ -138,6 +135,7 @@ const Sidebar = (props) => {
         <div className="filter">
           <div className="filter-child">
             <Select className="combo"
+              value={ (props.selectedFilters.jud !== undefined) ? props.selectedFilters.jud : '' }
               onUpdate={ (event) => { props.changeDistrict(event.value)} }
               menuStyle={{maxHeight: 250, overflow: 'scroll'}}
             >
@@ -153,6 +151,7 @@ const Sidebar = (props) => {
               }
             </Select>
             <Select className="combo"
+              value={ (props.selectedFilters.category !== undefined) ? props.selectedFilters.category : '' }
               onUpdate={ (event) => { props.changeCategory(event.value) } }
               menuStyle={{maxHeight: 250, overflow: 'scroll'}}
             >
@@ -167,20 +166,22 @@ const Sidebar = (props) => {
                 ))
               }
             </Select>
-            <SelectField
-              id="select-id"
-              className="combo select-field"
-              value={props.selectedService}
-              autoWidth={true}
-              labelStyle={{color:'#ffffff', lineHeight:'1em', paddingRight:0, height:'auto'}}
-              style={{borderColor: '#37b8d4!important', marginLeft: 20, height:'auto', width:214, marginTop:20, marginBottom:5}}
-              onChange={(event, index, value) => props.changeService(value)}>
-              <MenuItem className="opt-items" key="default" value='' primaryText="Categoria de servicii" />
-              {filteredServices.map((service, index) => (
-                <MenuItem className="opt-items" key={index} value={service.cod} primaryText={service.desc} />
-              ))}
-            </SelectField>
             <Select className="combo"
+              value={ (props.selectedService !== '') ? props.selectedService : ''  }
+              onUpdate={ (event) => props.changeService(event.value) }
+              menuStyle={{maxHeight: 250, overflow: 'scroll'}}
+            >
+              <Option defaultValue value="">Categoria de servicii</Option>
+              {filteredServices.map((service, index) => (
+                <Option value={ service.cod }
+                  identifier={ index }
+                  key={ index }>
+                  { service.desc }
+                </Option>
+              ))}
+            </Select>
+            <Select className="combo"
+              value={ (props.selectedFilters.type !== undefined) ? props.selectedFilters.type : '' }
               onUpdate={ (event) => { props.changeType(event.value)} }
               menuStyle={{maxHeight: 250, overflow: 'scroll'}}
             >
@@ -195,8 +196,9 @@ const Sidebar = (props) => {
               }
             </Select>
             <Select className="combo"
+              value={ (props.selectedFilters.categorie !== undefined) ? props.selectedFilters.categorie : '' }
               onUpdate={ (event) => { props.changeBeneficiary(event.value)} }
-              menuStyle={{maxHeight: 250, overflow: 'scroll'}}
+              menuStyle={{maxHeight: 250, overflow: 'scroll', zIndex:2300}}
             >
               <Option defaultValue value="">Beneficiari</Option>
               {
@@ -209,6 +211,11 @@ const Sidebar = (props) => {
               }
             </Select>
           </div>
+          <RaisedButton
+            label="Reset"
+            onTouchTap={props.resetFilters}
+            style={{marginLeft:20, marginTop: 10}}
+            />
         </div>
         <Divider style={{flexGrow:'1', backgroundColor:'#26b2d0'}}/>
         <Divider style={{ backgroundColor:'rgba(255, 255, 255, 0.2)'}}/>

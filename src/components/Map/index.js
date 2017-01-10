@@ -91,10 +91,10 @@ class Map extends React.Component {
           zoom={this.props.zoom}
           selectedFilters={this.props.selectedFilters}
           containerElement={
-            <div style={{ marginTop: 54, height: 'calc(100vh - 129px)', width: '100vw' }} />
+            <div style={{ marginTop: 54, height: 'calc(100vh - 130px)', width: '100vw' }} />
           }
           mapElement={
-            <div style={{ height: 'calc(100vh - 129px)', width: '100vw' }} />
+            <div style={{ height: 'calc(100vh - 130px)', width: '100vw' }} />
           }
           markers={this.props.markers}
           open={this.props.open}

@@ -111,6 +111,11 @@ class App extends Component {
   }
 
   setZoom = (zoom) => this.setState({zoom});
+  resetFilters = () => this.setState({
+    selectedFilters: {},
+    selectedService: '',
+    zoom: 7
+  });
 
   onMarkerClick = (marker) => {
     this.props.route.history.push(`/serviciu/${marker.slug}`);
@@ -172,6 +177,7 @@ class App extends Component {
                 changeType={this.changeType}
                 handleDisclaimer={this.handleDisclaimer}
                 onZoomChanged={this.onZoomChanged}
+                resetFilters={this.resetFilters}
               />
               <div>
                 {children}
