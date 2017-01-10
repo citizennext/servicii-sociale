@@ -37,7 +37,7 @@ button.meta, a.meta{
 }
 .filter{
   overflow-y: scroll;
-  min-height: 430px;
+  min-height: 300px;
 }
 .filter label{
   color: #ffffff!important;
