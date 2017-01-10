@@ -167,7 +167,7 @@ const Sidebar = (props) => {
               }
             </Select>
             <Select className="combo"
-              value={ (props.selectedService !== '') ? props.selectedService : ''  }
+              value={ (props.selectedFilters.cod !== undefined) ? props.selectedFilters.cod : '' }
               onUpdate={ (event) => props.changeService(event.value) }
               menuStyle={{maxHeight: 250, overflow: 'scroll'}}
             >
