@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "axios": "^0.15.2",
-    "belle": "^3.0.0",
+    "belle": "^3.0.1",
     "history": "^4.4.1",
     "material-ui": "^0.16.4",
     "ramda": "^0.22.1",

@@ -963,9 +963,9 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-belle@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/belle/-/belle-3.0.0.tgz#73a1891d9e56b9d65328f94a8208028c53d6c061"
+belle@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/belle/-/belle-3.0.1.tgz#6dc70b3babb702ea932640d2bbea47577256dc39"
   dependencies:
     exenv "^1.2.0"
 
