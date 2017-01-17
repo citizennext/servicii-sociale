@@ -48,7 +48,7 @@ const Info = (props) => {
         <p>Utilizatorii pot contribui la acuratețea datelor prezentate pe <a href="http://harta-furnizori.mmuncii.ro">harta-furnizori.mmuncii.ro</a> și pot trimite observații și propuneri de îmbunătățire a platformei la adresa de email <a href="mailto:acreditare@mmuncii.ro">acreditare@mmuncii.ro</a>.</p>
 
         <h3>Descarca lista serviciilor sociale licențiate</h3>
-        <p>Tabelul cu toate serviciile sociale licențiate din Romania poate fi descarcat de <a href="http://www.mmuncii.ro/j33/images/Documente/Familie/2016/ServiciiSociale_10nov2016.pdf" title="Lista serviciilor sociale licențiate - Descarcare format pdf">aici (format pdf).</a></p>
+        <p>Tabelul cu toate serviciile sociale licențiate din Romania poate fi descarcat de <a href="http://www.mmuncii.ro/j33/images/Documente/Familie/2017/2017-10-01-Servicii-Sociale-10.01.2017.pdf" title="Lista serviciilor sociale licențiate - Descarcare format pdf">aici (format pdf).</a></p>
       </div>
     </Container>
   )
