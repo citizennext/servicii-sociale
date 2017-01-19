@@ -138,21 +138,21 @@ const Contact = (props) => {
       <DetailsCard>
         <Over zDepth={2}>
           <Third gray>
-            <Points><i style={styles.icon} className="fa fa-map-marker"></i><PointsText>{marker.adresa}, {marker.oras}, {marker.cod}</PointsText></Points>
-            <Points><i style={styles.icon} className="fa fa-phone"></i><PointsText>
+            <Points><i style={styles.icon} className="icon-location"></i><PointsText>{marker.adresa}, {marker.oras}, {marker.cod}</PointsText></Points>
+            <Points><i style={styles.icon} className="icon-phone"></i><PointsText>
               {marker.phone}</PointsText></Points>
-            <Points><i style={styles.icon} className="fa fa-globe"></i><PointsText>
+            <Points><i style={styles.icon} className="icon-globe"></i><PointsText>
               <a href={marker.web} style={{color: '#ffffff', textDecoration: 'none'}}>{marker.web}</a></PointsText></Points>
-            <Points email><i style={styles.icon} className="fa fa-envelope"></i><PointsText email><a href={`mailto:${marker.email}`} style={{color: '#ffffff', textDecoration: 'none'}}>{marker.email}</a></PointsText></Points>
+            <Points email><i style={styles.icon} className="icon-mail-alt"></i><PointsText email><a href={`mailto:${marker.email}`} style={{color: '#ffffff', textDecoration: 'none'}}>{marker.email}</a></PointsText></Points>
             <LogoWhite src={logo} alt="Ministerul Muncii"/>
           </Third>
           <TwoThirds>
             <Organisation>Programul de funcționare al instituței:</Organisation>
             <p><strong>Luni - Joi:</strong> 08.00 - 16.30</p>
             <p><strong>Vineri:</strong> 08.00 - 14.00</p>
-            <Icon href="https://www.facebook.com/Ministerul.Muncii.Romania" target="_blank" rel="noopener" title="twitter"><i className="fa fa-facebook"></i></Icon>
-            <Icon href="https://twitter.com/MMFPSPV" target="_blank" rel="noopener" title="twitter"><i className="fa fa-twitter"></i></Icon>
-            <Icon href="https://www.youtube.com/channel/UC7Vj9DEdNhlkCl4-4r4VPPQ" target="_blank" rel="noopener" title="twitter"><i className="fa fa-youtube"></i></Icon>
+            <Icon href="https://www.facebook.com/Ministerul.Muncii.Romania" target="_blank" rel="noopener" title="twitter"><i className="icon-facebook"></i></Icon>
+            <Icon href="https://twitter.com/MMFPSPV" target="_blank" rel="noopener" title="twitter"><i className="icon-twitter"></i></Icon>
+            <Icon href="https://www.youtube.com/channel/UC7Vj9DEdNhlkCl4-4r4VPPQ" target="_blank" rel="noopener" title="twitter"><i className="icon-youtube"></i></Icon>
           </TwoThirds>
         </Over>
       </DetailsCard>

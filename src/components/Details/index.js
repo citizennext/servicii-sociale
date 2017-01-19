@@ -161,15 +161,15 @@ const Details = (props) => {
       <DetailsCard>
         <Over zDepth={2}>
           <Third gray>
-            <Points><i style={styles.icon} className="fa fa-map-marker"></i><PointsText>{marker.adresa}, {marker.oras}, {marker.jud}</PointsText></Points>
-            <Points><i style={styles.icon} className="fa fa-phone"></i>
+            <Points><i style={styles.icon} className="icon-location"></i><PointsText>{marker.adresa}, {marker.oras}, {marker.jud}</PointsText></Points>
+            <Points><i style={styles.icon} className="icon-phone"></i>
               <PointsText>
               {marker.phone.length >= 1
                 ? marker.phone.map(phone => `${phoneNumbers(phone)}, `)
                 : 'Nu avem un numar de telefon in baza de date'}
               </PointsText>
             </Points>
-            <Points email><i style={styles.icon} className="fa fa-envelope"></i><PointsText email><a href={`mailto:${marker.email}`} style={{color: '#ffffff', textDecoration: 'none'}}>{marker.email}</a></PointsText></Points>
+            <Points email><i style={styles.icon} className="icon-mail-alt"></i><PointsText email><a href={`mailto:${marker.email}`} style={{color: '#ffffff', textDecoration: 'none'}}>{marker.email}</a></PointsText></Points>
             <Cap><span style={{fontSize:72, fontWeight: 700, clear:'both', display:'block', color: '#ffffff'}}>{marker.capacitate ? marker.capacitate : "?"}</span> capacitate</Cap>
           </Third>
           <TwoThirds>

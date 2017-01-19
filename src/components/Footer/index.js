@@ -53,9 +53,9 @@ const Footer= (props) => (
 			<a href="http://ithub.gov.ro/" target="_blank" rel="noopener"><GovITHUbLogo open={props.open} src={govithubLogo} alt='GovITHub' /></a>
 		</Logos>
     <SocialMedia>
-      <Icon href="https://twitter.com/MMFPSPV" target="_blank" rel="noopener" title="twitter"><i className="fa fa-twitter"></i></Icon>
-      <Icon href="https://www.facebook.com/Ministerul.Muncii.Romania" target="_blank" rel="noopener" title="facebook"><i className="fa fa-facebook"></i></Icon>
-      <Icon href="https://github.com/gov-ithub/servicii-sociale" target="_blank" rel="noopener" title="github"><i className="fa fa-github"></i></Icon>
+      <Icon href="https://twitter.com/MMFPSPV" target="_blank" rel="noopener" title="twitter"><i className="icon-twitter"></i></Icon>
+      <Icon href="https://www.facebook.com/Ministerul.Muncii.Romania" target="_blank" rel="noopener" title="facebook"><i className="icon-facebook"></i></Icon>
+      <Icon href="https://github.com/gov-ithub/servicii-sociale" target="_blank" rel="noopener" title="github"><i className="icon-github-circled"></i></Icon>
     </SocialMedia>
   </FooterBox>
 )

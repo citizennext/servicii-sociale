@@ -20,16 +20,16 @@
 		<meta name="twitter:site" content="@govithub_ro" />
 		<meta name="twitter:image" content="https://harta-furnizori.mmuncii.ro/assets/share.png" />
 		<meta name="twitter:creator" content="@govithub_ro" />
-    
+
 
     <title>Harta Serviciilor Sociale Licențiate</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="text/javascript"
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2eUGbOmhekgrQMeOQ1vyjVRkb9FnJxJ0" async>
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2eUGbOmhekgrQMeOQ1vyjVRkb9FnJxJ0" async defer>
     </script>
-    <script src="https://use.fontawesome.com/236bd9b688.js" async></script>
+    
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
@@ -45,15 +45,13 @@
       }
     });
     </script>
+    <!-- Google Analytics -->
     <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
     ga('create', 'UA-88733205-1', 'auto');
     ga('send', 'pageview');
-
     </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
   </body>
 </html>
