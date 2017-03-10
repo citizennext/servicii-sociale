@@ -47,7 +47,7 @@ const Pagina = styled.span`
   font-weight: 400;
   border-bottom: solid 3px #ffcc00;
 `;
-const NotFound = (props) => {
+const NotFound = props => {
   return (
     <Container>
       <OverlayBar>
@@ -55,16 +55,28 @@ const NotFound = (props) => {
           label="Inapoi"
           primary={true}
           onTouchTap={props.pageBack}
-          style={props.open ? {marginLeft:322,marginTop:8,color:'#333333'} : {marginLeft:64,marginTop:8, color:'#333333'}}
-          icon={<NavigationArrowBack color='#333333' />}
+          style={
+            props.open
+              ? { marginLeft: 322, marginTop: 8, color: '#333333' }
+              : { marginLeft: 64, marginTop: 8, color: '#333333' }
+          }
+          icon={<NavigationArrowBack color="#333333" />}
         />
       </OverlayBar>
-      <div style={{minHeight: '100%', marginTop: '54px', maxWidth: '100vw'}}>
+      <div style={{ minHeight: '100%', marginTop: '54px', maxWidth: '100vw' }}>
         <StyledPaper>
           <Title>Hopa!</Title>
-          <p>Pagina <Pagina>{props.location.pathname}</Pagina> nu se gaseste pe situl nostru. Poate la alt minister.</p>
+          <p>
+            Pagina
+            {' '}
+            <Pagina>{props.location.pathname}</Pagina>
+            {' '}
+            nu se gaseste pe situl nostru. Poate la alt minister.
+          </p>
           <p>La noi ai putea eventual cauta:</p>
-          <p><Link to="/acreditare">Pagina cu informatii despre acreditare</Link></p>
+          <p>
+            <Link to="/acreditare">Pagina cu informatii despre acreditare</Link>
+          </p>
           <p><Link to="/contact">Pagina de contact</Link></p>
           <p><Link to="/statistici">Pagina cu statistici</Link></p>
           <p><Link to="/info">Pagina de informatii generale</Link></p>
@@ -72,6 +84,6 @@ const NotFound = (props) => {
         </StyledPaper>
       </div>
     </Container>
-  )
-}
-export default NotFound
+  );
+};
+export default NotFound;

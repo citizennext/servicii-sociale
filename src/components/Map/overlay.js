@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router';
-import RaisedButton from 'material-ui/RaisedButton'
+import RaisedButton from 'material-ui/RaisedButton';
 const OverlayBar = styled.div`
   position: fixed;
   top: 0;
@@ -29,19 +29,26 @@ const Title = styled.div`
     line-height: 1.9em;
   }
 `;
-const Overlay = (props) => {
+const Overlay = props => {
   return (
-      <OverlayBar>
-        <div style={props.open ? {paddingLeft:312,marginTop:3} : {paddingLeft:54,marginTop:3}}>
-          <Title><span className="count">{props.count}</span> servicii licențiate</Title>
-          <RaisedButton
-            label="Statistici"
-            primary={true}
-            containerElement={<Link to="/statistici" />}
-            style={{float:'right', marginTop:-4, marginRight:18}}
-            />
-        </div>
-      </OverlayBar>
-  )
+    <OverlayBar>
+      <div
+        style={
+          props.open
+            ? { paddingLeft: 312, marginTop: 3 }
+            : { paddingLeft: 54, marginTop: 3 }
+        }>
+        <Title>
+          <span className="count">{props.count}</span> servicii licențiate
+        </Title>
+        <RaisedButton
+          label="Statistici"
+          primary={true}
+          containerElement={<Link to="/statistici" />}
+          style={{ float: 'right', marginTop: -4, marginRight: 18 }}
+        />
+      </div>
+    </OverlayBar>
+  );
 };
 export default Overlay;

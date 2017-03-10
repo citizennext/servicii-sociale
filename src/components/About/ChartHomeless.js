@@ -1,5 +1,5 @@
-import React from 'react'
-import {ResponsiveContainer, PieChart, Pie, Sector} from 'recharts'
+import React from 'react';
+import { ResponsiveContainer, PieChart, Pie, Sector } from 'recharts';
 const data = [
   { name: 'Alba', value: 220 },
   { name: 'Arad', value: 50 },
@@ -18,68 +18,98 @@ const data = [
   { name: 'Mures', value: 16 },
   { name: 'Sibiu', value: 25 },
   { name: 'Teleorman', value: 72 }
-]
+];
 
-const renderActiveShape = (props) => {
+const renderActiveShape = props => {
   const RADIAN = Math.PI / 180;
-  const { cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle,
-    fill, payload, percent, value } = props;
-    const sin = Math.sin(-RADIAN * midAngle);
-    const cos = Math.cos(-RADIAN * midAngle);
-    const sx = cx + (outerRadius + 5) * cos;
-    const sy = cy + (outerRadius + 5) * sin;
-    const mx = cx + (outerRadius + 8) * cos;
-    const my = cy + (outerRadius + 8) * sin;
-    const ex = mx + (cos >= 0 ? 1 : -1) * 22;
-    const ey = my;
-    const textAnchor = cos >= 0 ? 'start' : 'end';
+  const {
+    cx,
+    cy,
+    midAngle,
+    innerRadius,
+    outerRadius,
+    startAngle,
+    endAngle,
+    fill,
+    payload,
+    percent,
+    value
+  } = props;
+  const sin = Math.sin((-RADIAN) * midAngle);
+  const cos = Math.cos((-RADIAN) * midAngle);
+  const sx = cx + (outerRadius + 5) * cos;
+  const sy = cy + (outerRadius + 5) * sin;
+  const mx = cx + (outerRadius + 8) * cos;
+  const my = cy + (outerRadius + 8) * sin;
+  const ex = mx + (cos >= 0 ? 1 : -1) * 22;
+  const ey = my;
+  const textAnchor = cos >= 0 ? 'start' : 'end';
 
+  return (
+    <g>
+      <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
+        {payload.name}
+      </text>
+      <Sector
+        cx={cx}
+        cy={cy}
+        innerRadius={innerRadius}
+        outerRadius={outerRadius}
+        startAngle={startAngle}
+        endAngle={endAngle}
+        fill={fill}
+      />
+      <Sector
+        cx={cx}
+        cy={cy}
+        startAngle={startAngle}
+        endAngle={endAngle}
+        innerRadius={outerRadius + 6}
+        outerRadius={outerRadius + 10}
+        fill={fill}
+      />
+      <path
+        d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`}
+        stroke={fill}
+        fill="none"
+      />
+      <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
+      <text
+        x={ex + (cos >= 0 ? 1 : -1) * 12}
+        y={ey}
+        textAnchor={textAnchor}
+        fill="#333"
+        fontSize={13}>
+        {`Cap. ${value}`}
+      </text>
+      <text
+        x={ex + (cos >= 0 ? 1 : -1) * 12}
+        y={ey}
+        dy={18}
+        textAnchor={textAnchor}
+        fill="#999"
+        fontSize={13}>
+        {`(${(percent * 100).toFixed(2)}%)`}
+      </text>
+    </g>
+  );
+};
+
+const TwoLevelPieChart = React.createClass({
+  getInitialState() {
+    return {
+      activeIndex: 0
+    };
+  },
+
+  onPieEnter(data, index) {
+    this.setState({
+      activeIndex: index
+    });
+  },
+  render() {
     return (
-      <g>
-        <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>{payload.name}</text>
-        <Sector
-          cx={cx}
-          cy={cy}
-          innerRadius={innerRadius}
-          outerRadius={outerRadius}
-          startAngle={startAngle}
-          endAngle={endAngle}
-          fill={fill}
-        />
-        <Sector
-          cx={cx}
-          cy={cy}
-          startAngle={startAngle}
-          endAngle={endAngle}
-          innerRadius={outerRadius + 6}
-          outerRadius={outerRadius + 10}
-          fill={fill}
-        />
-        <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke={fill} fill="none"/>
-        <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none"/>
-        <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#333" fontSize={13}>{`Cap. ${value}`}</text>
-        <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fill="#999" fontSize={13}>
-          {`(${(percent * 100).toFixed(2)}%)`}
-        </text>
-      </g>
-    );
-  };
-
-  const TwoLevelPieChart = React.createClass({
-    getInitialState() {
-      return {
-        activeIndex: 0,
-      };
-    },
-
-    onPieEnter(data, index) {
-      this.setState({
-        activeIndex: index,
-      });
-    },
-    render () {
-      return (
-        <div style={{ width: 320, height: '250px'}}>
+      <div style={{ width: 320, height: '250px' }}>
         <ResponsiveContainer>
           <PieChart onMouseEnter={this.onPieEnter}>
             <Pie
@@ -91,11 +121,12 @@ const renderActiveShape = (props) => {
               innerRadius={50}
               outerRadius={80}
               paddingAngle={3}
-              fill="#37b8d4"/>
-            </PieChart>
-          </ResponsiveContainer>
-        </div>
-        );
-      }
-    })
-    export default TwoLevelPieChart
+              fill="#37b8d4"
+            />
+          </PieChart>
+        </ResponsiveContainer>
+      </div>
+    );
+  }
+});
+export default TwoLevelPieChart;

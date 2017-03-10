@@ -4,7 +4,7 @@ import Paper from 'material-ui/Paper';
 import FlatButton from 'material-ui/FlatButton';
 import NavigationArrowBack from 'material-ui/svg-icons/navigation/arrow-back';
 import styled from 'styled-components';
-import logo from './logo-white.png'
+import logo from './logo-white.png';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -76,7 +76,6 @@ const PointsText = styled.div`
   padding-left: 30px;
   line-height: 1.3em;
   text-overflow: ${props => props.email ? 'ellipsis;' : 'none'};
-
 `;
 const LogoWhite = styled.img`
   width: 100%;
@@ -99,28 +98,28 @@ const Icon = styled.a`
   }
 `;
 const styles = {
-  icon:{
+  icon: {
     color: '#ffcc00',
     width: 30,
-    float:'left',
+    float: 'left',
     paddingTop: 0,
     fontSize: 18
   }
-}
-const Contact = (props) => {
+};
+const Contact = props => {
   const marker = {
-      "id": 1,
-      "name": "Ministerul Muncii, Familiei, Protecţiei Sociale și Persoanelor Vârstnice",
-      "furnizor": "Asociaţia Izvorul Tămăduirii Alba",
-      "adresa": "Str. Dem.I.Dobrescu nr. 2 - 4, Sectorul 1",
-      "oras": "Bucureşti",
-      "cod": "cod poștal 010026",
-      "web": "http://www.mmuncii.gov.ro",
-      "email": "acreditare@mmuncii.ro",
-      "phone": "021.315.85.56",
-      "lat": "44.439193",
-      "lng": "26.098499"
-    }
+    id: 1,
+    name: 'Ministerul Muncii, Familiei, Protecţiei Sociale și Persoanelor Vârstnice',
+    furnizor: 'Asociaţia Izvorul Tămăduirii Alba',
+    adresa: 'Str. Dem.I.Dobrescu nr. 2 - 4, Sectorul 1',
+    oras: 'Bucureşti',
+    cod: 'cod poștal 010026',
+    web: 'http://www.mmuncii.gov.ro',
+    email: 'acreditare@mmuncii.ro',
+    phone: '021.315.85.56',
+    lat: '44.439193',
+    lng: '26.098499'
+  };
   return (
     <Container>
       <OverlayBar>
@@ -128,35 +127,81 @@ const Contact = (props) => {
           label="Inapoi"
           primary={true}
           onTouchTap={props.pageBack}
-          style={props.open ? {marginLeft:322,marginTop:8,color:'#333333'} : {marginLeft:64,marginTop:8, color:'#333333'}}
-          icon={<NavigationArrowBack color='#333333' />}
+          style={
+            props.open
+              ? { marginLeft: 322, marginTop: 8, color: '#333333' }
+              : { marginLeft: 64, marginTop: 8, color: '#333333' }
+          }
+          icon={<NavigationArrowBack color="#333333" />}
         />
       </OverlayBar>
       <Map>
-        <SingleMap marker={marker} zoom={18}/>
+        <SingleMap marker={marker} zoom={18} />
       </Map>
       <DetailsCard>
         <Over zDepth={2}>
           <Third gray>
-            <Points><i style={styles.icon} className="icon-location"></i><PointsText>{marker.adresa}, {marker.oras}, {marker.cod}</PointsText></Points>
-            <Points><i style={styles.icon} className="icon-phone"></i><PointsText>
-              {marker.phone}</PointsText></Points>
-            <Points><i style={styles.icon} className="icon-globe"></i><PointsText>
-              <a href={marker.web} style={{color: '#ffffff', textDecoration: 'none'}}>{marker.web}</a></PointsText></Points>
-            <Points email><i style={styles.icon} className="icon-mail-alt"></i><PointsText email><a href={`mailto:${marker.email}`} style={{color: '#ffffff', textDecoration: 'none'}}>{marker.email}</a></PointsText></Points>
-            <LogoWhite src={logo} alt="Ministerul Muncii"/>
+            <Points>
+              <i style={styles.icon} className="icon-location" />
+              <PointsText>
+                {marker.adresa}, {marker.oras}, {marker.cod}
+              </PointsText>
+            </Points>
+            <Points>
+              <i style={styles.icon} className="icon-phone" /><PointsText>
+                {marker.phone}
+              </PointsText>
+            </Points>
+            <Points>
+              <i style={styles.icon} className="icon-globe" /><PointsText>
+                <a
+                  href={marker.web}
+                  style={{ color: '#ffffff', textDecoration: 'none' }}>
+                  {marker.web}
+                </a>
+              </PointsText>
+            </Points>
+            <Points email>
+              <i style={styles.icon} className="icon-mail-alt" />
+              <PointsText email>
+                <a
+                  href={`mailto:${marker.email}`}
+                  style={{ color: '#ffffff', textDecoration: 'none' }}>
+                  {marker.email}
+                </a>
+              </PointsText>
+            </Points>
+            <LogoWhite src={logo} alt="Ministerul Muncii" />
           </Third>
           <TwoThirds>
             <Organisation>Programul de funcționare al instituței:</Organisation>
             <p><strong>Luni - Joi:</strong> 08.00 - 16.30</p>
             <p><strong>Vineri:</strong> 08.00 - 14.00</p>
-            <Icon href="https://www.facebook.com/Ministerul.Muncii.Romania" target="_blank" rel="noopener" title="twitter"><i className="icon-facebook"></i></Icon>
-            <Icon href="https://twitter.com/MMFPSPV" target="_blank" rel="noopener" title="twitter"><i className="icon-twitter"></i></Icon>
-            <Icon href="https://www.youtube.com/channel/UC7Vj9DEdNhlkCl4-4r4VPPQ" target="_blank" rel="noopener" title="twitter"><i className="icon-youtube"></i></Icon>
+            <Icon
+              href="https://www.facebook.com/Ministerul.Muncii.Romania"
+              target="_blank"
+              rel="noopener"
+              title="twitter">
+              <i className="icon-facebook" />
+            </Icon>
+            <Icon
+              href="https://twitter.com/MMFPSPV"
+              target="_blank"
+              rel="noopener"
+              title="twitter">
+              <i className="icon-twitter" />
+            </Icon>
+            <Icon
+              href="https://www.youtube.com/channel/UC7Vj9DEdNhlkCl4-4r4VPPQ"
+              target="_blank"
+              rel="noopener"
+              title="twitter">
+              <i className="icon-youtube" />
+            </Icon>
           </TwoThirds>
         </Over>
       </DetailsCard>
     </Container>
-  )
+  );
 };
 export default Contact;

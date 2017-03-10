@@ -5,7 +5,7 @@ import Paper from 'material-ui/Paper';
 import FlatButton from 'material-ui/FlatButton';
 import NavigationArrowBack from 'material-ui/svg-icons/navigation/arrow-back';
 import styled from 'styled-components';
-import R from 'ramda'
+import R from 'ramda';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -126,24 +126,25 @@ const Services = styled.div`
   margin-top: 30px;
 `;
 const styles = {
-  icon:{
+  icon: {
     color: '#ffcc00',
     width: 30,
-    float:'left',
+    float: 'left',
     paddingTop: 0,
     fontSize: 18
   }
-}
-const phoneNumbers = (number) => {
-  const n = Array.from(number)
-  return `0${n[0]}${n[1]}${n[2]}.${n[3]}${n[4]}${n[5]}.${n[6]}${n[7]}${n[8]}`
-}
-const Details = (props) => {
-  const marker =
-    R.find(marker => marker.slug === props.params.slug)(props.markers)
-  const services = (marker.cod !== "")
+};
+const phoneNumbers = number => {
+  const n = Array.from(number);
+  return `0${n[0]}${n[1]}${n[2]}.${n[3]}${n[4]}${n[5]}.${n[6]}${n[7]}${n[8]}`;
+};
+const Details = props => {
+  const marker = R.find(marker => marker.slug === props.params.slug)(
+    props.markers
+  );
+  const services = marker.cod !== ''
     ? R.find(service => service.cod === marker.cod)(props.servicii)
-    : null
+    : null;
   return (
     <Container>
       <OverlayBar>
@@ -151,26 +152,58 @@ const Details = (props) => {
           label="Inapoi"
           primary={true}
           onTouchTap={props.handleBack}
-          style={props.open ? {marginLeft:322,marginTop:8,color:'#333333'} : {marginLeft:64,marginTop:8, color:'#333333'}}
-          icon={<NavigationArrowBack color='#333333' />}
+          style={
+            props.open
+              ? { marginLeft: 322, marginTop: 8, color: '#333333' }
+              : { marginLeft: 64, marginTop: 8, color: '#333333' }
+          }
+          icon={<NavigationArrowBack color="#333333" />}
         />
       </OverlayBar>
       <Map>
-        <SingleMap marker={marker} zoom={14}/>
+        <SingleMap marker={marker} zoom={14} />
       </Map>
       <DetailsCard>
         <Over zDepth={2}>
           <Third gray>
-            <Points><i style={styles.icon} className="icon-location"></i><PointsText>{marker.adresa}, {marker.oras}, {marker.jud}</PointsText></Points>
-            <Points><i style={styles.icon} className="icon-phone"></i>
+            <Points>
+              <i style={styles.icon} className="icon-location" />
               <PointsText>
-              {marker.phone.length >= 1
-                ? marker.phone.map(phone => `${phoneNumbers(phone)}, `)
-                : 'Nu avem un numar de telefon in baza de date'}
+                {marker.adresa}, {marker.oras}, {marker.jud}
               </PointsText>
             </Points>
-            <Points email><i style={styles.icon} className="icon-mail-alt"></i><PointsText email><a href={`mailto:${marker.email}`} style={{color: '#ffffff', textDecoration: 'none'}}>{marker.email}</a></PointsText></Points>
-            <Cap><span style={{fontSize:72, fontWeight: 700, clear:'both', display:'block', color: '#ffffff'}}>{marker.capacitate ? marker.capacitate : "?"}</span> capacitate</Cap>
+            <Points>
+              <i style={styles.icon} className="icon-phone" />
+              <PointsText>
+                {marker.phone.length >= 1
+                  ? marker.phone.map(phone => `${phoneNumbers(phone)}, `)
+                  : 'Nu avem un numar de telefon in baza de date'}
+              </PointsText>
+            </Points>
+            <Points email>
+              <i style={styles.icon} className="icon-mail-alt" />
+              <PointsText email>
+                <a
+                  href={`mailto:${marker.email}`}
+                  style={{ color: '#ffffff', textDecoration: 'none' }}>
+                  {marker.email}
+                </a>
+              </PointsText>
+            </Points>
+            <Cap>
+              <span
+                style={{
+                  fontSize: 72,
+                  fontWeight: 700,
+                  clear: 'both',
+                  display: 'block',
+                  color: '#ffffff'
+                }}>
+                {marker.capacitate ? marker.capacitate : '?'}
+              </span>
+              {' '}
+              capacitate
+            </Cap>
           </Third>
           <TwoThirds>
             <Organisation>{marker.name}</Organisation>
@@ -179,17 +212,16 @@ const Details = (props) => {
             <List>
               {services !== null
                 ? services.servicii.map((service, i) => {
-                  return (
-                    <Bullet key={i}>{service}</Bullet>
-                  )
-                })
-                : <Bullet>Acest centru nu are inca listate serviciile oferite</Bullet>
-              }
+                    return <Bullet key={i}>{service}</Bullet>;
+                  })
+                : <Bullet>
+                    Acest centru nu are inca listate serviciile oferite
+                  </Bullet>}
             </List>
           </TwoThirds>
         </Over>
       </DetailsCard>
     </Container>
-  )
+  );
 };
 export default Details;
