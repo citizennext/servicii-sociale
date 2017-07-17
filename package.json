@@ -2,7 +2,6 @@
 	"name": "servicii",
 	"version": "0.3.0",
 	"private": true,
-	"homepage": "https://civictechro.github.io/servicii-sociale",
 	"devDependencies": {
 		"babel-polyfill": "^6.23.0",
 		"react-scripts": "^1.0.10"
