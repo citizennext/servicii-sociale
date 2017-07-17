@@ -1,45 +1,46 @@
 @-ms-viewport {
-  width: device-width;
+	width: device-width;
 }
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Roboto, sans-serif;
+	margin: 0;
+	padding: 0;
+	font-family: Roboto, sans-serif;
 	background: #f5f5f5;
 }
 input {
-  background-color: transparent;
+	background-color: transparent;
 }
 h2 {
-  font-weight: 100;
-  width: 100%;
-  font-size: 30px;
-  color: #37b8d4;
-  margin-top: 40px;
+	font-weight: 100;
+	width: 100%;
+	font-size: 30px;
+	color: #37b8d4;
+	margin-top: 40px;
 }
 h3 {
-  font-weight: 100;
-  color: #37b8d4;
-  margin-top: 30px;
-  margin-bottom: 5px;
+	font-weight: 100;
+	color: #37b8d4;
+	margin-top: 30px;
+	margin-bottom: 5px;
 }
-p{
-  line-height: 1.4em;
-  color: #666;
+p {
+	line-height: 1.4em;
+	color: #666;
 }
 a {
-  border-bottom: solid 3px #ffcc00;
-  text-decoration: none;
-  color: #555;
+	border-bottom: solid 3px #ffcc00;
+	text-decoration: none;
+	color: #555;
 }
-a:hover{
-  color: #37b8d4;
-  border-bottom: solid 3px #37b8d4;
+a:hover {
+	color: #37b8d4;
+	border-bottom: solid 3px #37b8d4;
 }
 .paper-docs {
 	margin-left: -20px;
 }
-.paper-docs a, .footer a {
+.paper-docs a,
+.footer a {
 	border-bottom: 0 !important;
 }
 .paper-docs div {
@@ -48,80 +49,80 @@ a:hover{
 .paper-docs p {
 	margin-top: 0;
 }
-.paper-docs h4{
+.paper-docs h4 {
 	font-size: 1.25em;
 	color: #37b8d4;
 	margin: 0;
 }
-.paper-docs ul{
+.paper-docs ul {
 	color: #666;
 	text-align: left;
 	padding-left: 25px;
 }
-.paper-docs li{
+.paper-docs li {
 	margin-bottom: .5em;
 	list-style: none;
 }
-.paper-docs li:before{
-  background-color: #37b8d4;
-  content: "";
-  line-height: 1em;
-  width: .5em;
-  height: .5em;
-  float: left;
-  margin: .25em .5em 0 -1em;
-  border-radius: 50%;
+.paper-docs li:before {
+	background-color: #37b8d4;
+	content: "";
+	line-height: 1em;
+	width: .5em;
+	height: .5em;
+	float: left;
+	margin: .25em .5em 0 -1em;
+	border-radius: 50%;
 }
-.paper-docs hr{
+.paper-docs hr {
 	border: solid 2px #ffcc00;
 	width: 20px;
 	margin: 15px auto 20px;
 }
-.paper-info p{
+.paper-info p {
 	margin-top: 15px;
 	text-align: left;
 }
-.paper-info div{
+.paper-info div {
 	width: 45% !important;
 	min-height: 450px;
 }
-.paper-faq{
+.paper-faq {
 	margin-right: 20px;
 }
-.faq-card{
+.faq-card {
 	margin-bottom: 20px;
 }
-.faq-title>div>span{
+.faq-title > div > span {
 	color: #37b8d4 !important;
 	font-size: 1.15em !important;
 }
-.faq-content{
+.faq-content {
 	font-size: 1em !important;
 	padding-top: 0 !important;
 	padding-bottom: 0 !important;
 	color: #666;
 }
-.faq-content p{
+.faq-content p {
 	margin-top: 0;
 }
 @media screen and (max-width: 480px) {
-	.paper-info div{
+	.paper-info div {
 		width: 94% !important;
 	}
-	.footer img{
+	.footer img {
 		height: 40px !important;
 	}
 }
 @font-face {
-  font-family: 'harta';
-  src: url('../public/font/harta.eot?72044250');
-  src: url('../public/font/harta.eot?72044250#iefix') format('embedded-opentype'),
-       url('../public/font/harta.woff2?72044250') format('woff2'),
-       url('../public/font/harta.woff?72044250') format('woff'),
-       url('../public/font/harta.ttf?72044250') format('truetype'),
-       url('../public/font/harta.svg?72044250#harta') format('svg');
-  font-weight: normal;
-  font-style: normal;
+	font-family: 'harta';
+	src: url('./assets/font/harta.eot?72044250');
+	src: url('./assets/font/harta.eot?72044250#iefix') format('embedded-opentype'),
+		url('./assets/font/harta.woff2?72044250') format('woff2'),
+		url('./assets/font/harta.woff?72044250') format('woff'),
+		url('./assets/font/harta.ttf?72044250') format('truetype'),
+		url('./assets/font/harta.svg?72044250#harta') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
 /* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
@@ -134,46 +135,63 @@ a:hover{
 }
 */
 
- [class^="icon-"]:before, [class*=" icon-"]:before {
-  font-family: "harta";
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+	font-family: "harta";
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
 
-  display: inline-block;
-  text-decoration: inherit;
-  width: 1em;
-  margin-right: .2em;
-  text-align: center;
-  /* opacity: .8; */
+	display: inline-block;
+	text-decoration: inherit;
+	width: 1em;
+	margin-right: .2em;
+	text-align: center;
+	/* opacity: .8; */
 
-  /* For safety - reset parent styles, that can break glyph codes*/
-  font-variant: normal;
-  text-transform: none;
+	/* For safety - reset parent styles, that can break glyph codes*/
+	font-variant: normal;
+	text-transform: none;
 
-  /* fix buttons height, for twitter bootstrap */
-  line-height: 1em;
+	/* fix buttons height, for twitter bootstrap */
+	line-height: 1em;
 
-  /* Animation center compensation - margins should be symmetric */
-  /* remove if not needed */
-  margin-left: .2em;
+	/* Animation center compensation - margins should be symmetric */
+	/* remove if not needed */
+	margin-left: .2em;
 
-  /* you can be more comfortable with increased icons size */
-  /* font-size: 120%; */
+	/* you can be more comfortable with increased icons size */
+	/* font-size: 120%; */
 
-  /* Font smoothing. That was taken from TWBS */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	/* Font smoothing. That was taken from TWBS */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 
-  /* Uncomment for 3D effect */
-  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+	/* Uncomment for 3D effect */
+	/* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
-.icon-location:before { content: '\e836'; } /* '' */
-.icon-phone:before { content: '\e83b'; } /* '' */
-.icon-globe:before { content: '\e874'; } /* '' */
-.icon-twitter:before { content: '\f099'; } /* '' */
-.icon-facebook:before { content: '\f09a'; } /* '' */
-.icon-github-circled:before { content: '\f09b'; } /* '' */
-.icon-mail-alt:before { content: '\f0e0'; } /* '' */
-.icon-youtube:before { content: '\f167'; } /* '' */
+.icon-location:before {
+	content: '\e836';
+} /* '' */
+.icon-phone:before {
+	content: '\e83b';
+} /* '' */
+.icon-globe:before {
+	content: '\e874';
+} /* '' */
+.icon-twitter:before {
+	content: '\f099';
+} /* '' */
+.icon-facebook:before {
+	content: '\f09a';
+} /* '' */
+.icon-github-circled:before {
+	content: '\f09b';
+} /* '' */
+.icon-mail-alt:before {
+	content: '\f0e0';
+} /* '' */
+.icon-youtube:before {
+	content: '\f167';
+} /* '' */
