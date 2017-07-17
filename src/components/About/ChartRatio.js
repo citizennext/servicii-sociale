@@ -89,7 +89,7 @@ class PieChartRatio extends React.Component {
 		}
 	}
 
-	onPieEnter(data, index) {
+	onPieEnter = (data, index) => {
 		this.setState({
 			activeIndex: index,
 		})

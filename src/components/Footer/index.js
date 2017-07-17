@@ -1,21 +1,7 @@
 import React from 'react'
-import Img from '../../components/Img'
-import logo from '../../assets/min-logo.png'
-import govithubLogo from '../../assets/govithub-logo.png'
-import styled from 'styled-components'
 
+import styled from 'styled-components'
 const Logos = styled.div``
-const Logo = styled(Img)`
-  margin-left: ${props => (props.open ? '150px' : '0')};
-  @media(max-width: 767px) {
-    margin: 0;
-  }
-`
-const GovITHUbLogo = styled(Img)`
-  @media(max-width: 767px) {
-    margin: 0;
-  }
-`
 const Icon = styled.a`
 	color: #666;
 	margin: 0 10px 0 0;
@@ -44,21 +30,10 @@ const FooterBox = styled.div`
 `
 const Footer = props =>
 	<FooterBox className="footer">
-		<Logos>
-			<a
-				href="http://www.mmuncii.ro/"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				<Logo open={props.open} src={logo} alt="Ministerul Muncii" />
-			</a>
-			<a href="http://ithub.gov.ro/" target="_blank" rel="noopener noreferrer">
-				<GovITHUbLogo open={props.open} src={govithubLogo} alt="GovITHub" />
-			</a>
-		</Logos>
+		<Logos />
 		<SocialMedia>
 			<Icon
-				href="https://twitter.com/MMFPSPV"
+				href="https://twitter.com/civictechro"
 				target="_blank"
 				rel="noopener noreferrer"
 				title="twitter"
@@ -66,7 +41,7 @@ const Footer = props =>
 				<i className="icon-twitter" />
 			</Icon>
 			<Icon
-				href="https://www.facebook.com/Ministerul.Muncii.Romania"
+				href="https://www.facebook.com/civictech-romania"
 				target="_blank"
 				rel="noopener noreferrer"
 				title="facebook"
@@ -74,7 +49,7 @@ const Footer = props =>
 				<i className="icon-facebook" />
 			</Icon>
 			<Icon
-				href="https://github.com/gov-ithub/servicii-sociale"
+				href="https://github.com/civictechro/servicii-sociale"
 				target="_blank"
 				rel="noopener noreferrer"
 				title="github"
