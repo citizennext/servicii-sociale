@@ -1,4 +1,4 @@
-# Harta Serviciilor Sociale Autorizate [![Travis build](https://travis-ci.org/gov-ithub/servicii-sociale.svg?branch=master)](https://travis-ci.org/gov-ithub/servicii-sociale)[![Slack Status](https://govitslack.herokuapp.com/badge.svg)](https://govitslack.herokuapp.com)
+# Harta Serviciilor Sociale Autorizate [![Travis build](https://travis-ci.org/gov-ithub/servicii-sociale.svg?branch=master)](https://travis-ci.org/gov-ithub/servicii-sociale)[![Slack Status](https://civictech.now.sh/badge.svg)](https://civictech.now.sh)
 
 Vizualizarea si Filtrarea Serviciilor Sociale Autorizate din Romania de catre cetateni.
 
@@ -50,7 +50,7 @@ Ca și framework folosim [Jest](https://facebook.github.io/jest/). [Documentați
 ## Pull Request cheat-sheet
 - Ai un summary complet? Trebuie să fie clar: ce schimbare aduce diff-ul, cum ai testat, și în cazuri unde se fac schimbări majore, dacă e cazul, avem un revert plan?
 - Ai scris teste pentru codul nou adăugat/modificat?
-- Ai făcut un self review pe propriul diff urmărind [guidelines](https://github.com/gov-ithub/guidelines/blob/master/CODE_REVIEW.md)?
+- Ai făcut un self review pe propriul diff urmărind [guidelines](https://github.com/civictechro/guidelines/blob/master/CODE_REVIEW.md)?
 
 Dacă răspunsul e "da" pentru toate 3, procesul de code review ar trebui să fie destul de painless, nice work.
 
@@ -58,6 +58,6 @@ Dacă răspunsul e "da" pentru toate 3, procesul de code review ar trebui să fi
 Preferă pull request-uri peste issues unde e posibil, pull request-urile sunt primite cu brațele deschise oricând.
 
 ## Cum poti intra in contact cu echipa?
-Prin email catre cezar.neaga@ithub.gov.ro sau mai rapid pe [Slack](https://govithub.slack.com/messages/servicii-sociale/details/)
+Prin email catre cezar.neaga@civictech.ro sau mai rapid pe [Slack](https://civictech.now.sh/)
 
 **Made with :heart: by [GovITHub](http://ithub.gov.ro)** and **continued by [civictech romania](http://civictech.ro)**
