@@ -14,7 +14,7 @@ Vizualizarea si Filtrarea Serviciilor Sociale Autorizate din Romania de catre ce
 - [Jest](https://facebook.github.io/jest/)
 - [npm](https://github.com/npm/npm)
 - [Travis](https://travis-ci.org/)
-- [RoR](http://rubyonrails.org/)  
+- [GraphQL Backend - not implemennted yet](https://graphql.org/)  
 - [Material Design Components](http://www.material-ui.com)  
 Posibil să se schimbe în viitorul apropiat
 
@@ -60,4 +60,4 @@ Preferă pull request-uri peste issues unde e posibil, pull request-urile sunt p
 ## Cum poti intra in contact cu echipa?
 Prin email catre cezar.neaga@ithub.gov.ro sau mai rapid pe [Slack](https://govithub.slack.com/messages/servicii-sociale/details/)
 
-**Made with :heart: by [GovITHub](http://ithub.gov.ro)**
+**Made with :heart: by [GovITHub](http://ithub.gov.ro)** and **continued by [civictech romania](http://civictech.ro)**
