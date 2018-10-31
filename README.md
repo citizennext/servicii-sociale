@@ -1,13 +1,13 @@
 # Harta Serviciilor Sociale Autorizate [![Travis build](https://travis-ci.org/gov-ithub/servicii-sociale.svg?branch=master)](https://travis-ci.org/gov-ithub/servicii-sociale)[![Slack Status](https://civictech.now.sh/badge.svg)](https://civictech.now.sh)
 
-Vizualizarea si Filtrarea Serviciilor Sociale Autorizate din Romania de catre cetateni.
+Vizualizarea și Filtrarea Serviciilor Sociale Autorizate din România de către cetățeni.
 
 ## Obiective
 - Evidența tuturor serviciilor
 - Prezentarea unor statistici cantitative ( #infographics)
 
 ## Pentru cine e platforma?
-- Cetatenii care au nevoie de aceste servicii si de datele de contact ale furnizorilor
+- Cetățenii care au nevoie de aceste servicii și de datele de contact ale furnizorilor
 
 ## Tehnologii folosite
 - [React](https://facebook.github.io/react/)
